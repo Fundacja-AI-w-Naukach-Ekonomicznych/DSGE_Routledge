@@ -60,14 +60,14 @@ var
 ;
 
 varexo  
-        etab        ${\eta_b}$         (long_name='Risk premium shock')
-        etaq        ${\eta_q}$         (long_name='Investment-specific technology shock')
-        etag        ${\eta_g}$         (long_name='Government spending shock')
-        etaa        ${\eta_a}$         (long_name='Productivity shock')
-        etap        ${\eta_p}$         (long_name='Price markup shock')
-        etas        ${\eta_s}$         (long_name='Labor supply shock')
-        etaw        ${\eta_w}$         (long_name='Wage markup shock')
-        etar        ${\eta_r}$         (long_name='Monetary policy shock')
+        eta_b        ${\eta_b}$         (long_name='Risk premium shock')
+        eta_q        ${\eta_q}$         (long_name='Investment-specific technology shock')
+        eta_g        ${\eta_g}$         (long_name='Government spending shock')
+        eta_a        ${\eta_a}$         (long_name='Productivity shock')
+        eta_p        ${\eta_p}$         (long_name='Price markup shock')
+        eta_s        ${\eta_s}$         (long_name='Labor supply shock')
+        eta_w        ${\eta_w}$         (long_name='Wage markup shock')
+        eta_r        ${\eta_r}$         (long_name='Monetary policy shock')
 ;
 
 parameters 
@@ -127,8 +127,8 @@ parameters
         e1        // ${e_1}$              Employment helper 1
 
      // shocks
-        crhob     ${\rho_b}$              (long_name = 'Persistence of risk premium shock')
-        crhoq     ${\rho_q}$              (long_name = 'Persistence of investment-specific shock')
+        c_rho_b     ${\rho_b}$              (long_name = 'Persistence of risk premium shock')
+        c_rho_q     ${\rho_q}$              (long_name = 'Persistence of investment-specific shock')
         crhog     ${\rho_g}$              (long_name = 'Persistence of government spending shock')
         crhoa     ${\rho_a}$              (long_name = 'Persistence of productivity shock')
         crhoga    ${\rho_{ga}}$           (long_name = 'Persistence of growth of productivity')
@@ -194,8 +194,8 @@ clk     = ((1-calpha)/calpha)*(crk/cw);
 cky     = cpsip*(clk^(calpha-1));
 
 // shock parameters
-crhob   = 0.915697;
-crhoq   = 0.345078; //rhoi
+c_rho_b   = 0.915697;
+c_rho_q   = 0.345078; //rhoi
 crhog   = 0.992875;
 crhoa   = 0.982716;
 crhoga  = 0.196454;
@@ -303,14 +303,14 @@ ef-ef(-1)=cbeta*(ef(+1)-ef)+e1*(nf-ef);
 ygap=y-yf;
 
 // shock processes
-epsilonb=crhob*epsilonb(-1)+etab;
-epsilonq=crhoq*epsilonq(-1)+etaq;
-epsilong=crhog*epsilong(-1)+etag+crhoga*etaa;
-epsilona=crhoa*epsilona(-1)+etaa;
-epsilonp=crhop*epsilonp(-1)+etap-cmup*etap(-1);
-epsilonr=crhor*epsilonr(-1)+etar;
-epsilons=crhos*epsilons(-1)+etas;
-epsilonw=crhow*epsilonw(-1)+etaw-cmuw*etaw(-1);
+epsilonb=c_rho_b * epsilonb(-1) + eta_b;
+epsilonq=c_rho_q * epsilonq(-1) + eta_q;
+epsilong=crhog*epsilong(-1) + eta_g + crhoga * eta_a;
+epsilona=crhoa*epsilona(-1) + eta_a;
+epsilonp=crhop*epsilonp(-1) + eta_p - cmup * eta_p(-1);
+epsilonr=crhor*epsilonr(-1) + eta_r;
+epsilons=crhos*epsilons(-1) + eta_s;
+epsilonw=crhow*epsilonw(-1) + eta_w - cmuw * eta_w(-1);
 
 // measurement equations
 dyobs=ctaubar+cebar+y-y(-1);
@@ -334,14 +334,14 @@ steady;
 check;
 
 shocks;
-    var etaa; stderr 0.570053;
-    var etab; stderr 0.254028;
-    var etag; stderr 0.305013;
-    var etaq; stderr 0.485825;
-    var etar; stderr 0.111101;
-    var etap; stderr 0.379025;
-    var etaw; stderr 0.354961;
-    var etas; stderr 1.012299;
+    var eta_a; stderr 0.570053;
+    var eta_b; stderr 0.254028;
+    var eta_g; stderr 0.305013;
+    var eta_q; stderr 0.485825;
+    var eta_r; stderr 0.111101;
+    var eta_p; stderr 0.379025;
+    var eta_w; stderr 0.354961;
+    var eta_s; stderr 1.012299;
 end;
 
 stoch_simul(periods = 1000, irf = 21) y c;
