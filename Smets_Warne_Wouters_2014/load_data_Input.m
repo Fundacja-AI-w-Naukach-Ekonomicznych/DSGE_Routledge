@@ -10,8 +10,27 @@ function load_params_from_excel(sheetname)
     end
 end
 
-load_params_from_excel('Parametry')
-load_params_from_excel('Szoki_Rho')
+function create_parameters_files()
+    clear all
+    load_params_from_excel('Parametry')
+    load_params_from_excel('Szoki_Rho')
 
-cd([cd '/EA_SWW14_rep']);
-save('SWW_Params.mat')
+    cd([cd '/EA_SWW14_rep']);
+    fid = fopen('param_defs.mod','w');
+
+    param_names = evalin('base', 'who');
+    for i = 1:length(param_names)
+        value = evalin('base', param_names{i});
+        fprintf(fid, '@# define %s = %f\n', param_names{i}, value);
+    end
+
+    fprintf(fid, '\n');
+    for i = 1:length(param_names)
+       fprintf(fid, '%s = @{%s};\n', param_names{i}, param_names{i});
+    end
+    fclose(fid);
+
+    save('SWW_Params.mat')
+end
+
+create_parameters_files()
