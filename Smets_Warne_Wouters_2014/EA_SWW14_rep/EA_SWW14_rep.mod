@@ -19,12 +19,18 @@ var
         kbar        ${\bar{k}}$   (long_name='Capital stock')
         ygap        ${y^{gap}}$   (long_name='Output gap')
 
-
         // flex variables
         cf rf invf qf rkf vf kf nf wf zf ef kbarf yf
 
         // shocks
-        epsilonb epsilonq epsilong epsilona epsilonp epsilons epsilonw epsilonr
+        epsilonb    ${\varepsilon_b}$     (long_name='Risk premium shock')
+        epsilonq    ${\varepsilon_q}$     (long_name='Investment-specific technology shock')
+        epsilong    ${\varepsilon_g}$     (long_name='Government spending shock')
+        epsilona    ${\varepsilon_a}$     (long_name='Productivity shock')
+        epsilonp    ${\varepsilon_p}$     (long_name='Price markup shock')
+        epsilons    ${\varepsilon_s}$     (long_name='Labor supply shock')
+        epsilonw    ${\varepsilon_w}$     (long_name='Wage markup shock')
+        epsilonr    ${\varepsilon_r}$     (long_name='Monetary policy shock')
 
         // measurement equations
         dyobs dcobs diobs piobs dwobs deobs uobs robs 
@@ -33,17 +39,18 @@ var
         ryear piyear
 
 ;
-varexo  
-        etab        // risk-premium shock
-        etaq        // investment-specific technology shock
-        etag        // exogenous spending shock
-        etaa        // productivity shock
-        etap        // price markup shock
-        etas        // labor supply shock
-        etaw        // wage shock
-        etar        // monetary policy shock
 
+varexo  
+        etab        ${\eta_b}$         (long_name='Risk premium shock')
+        etaq        ${\eta_q}$         (long_name='Investment-specific technology shock')
+        etag        ${\eta_g}$         (long_name='Government spending shock')
+        etaa        ${\eta_a}$         (long_name='Productivity shock')
+        etap        ${\eta_p}$         (long_name='Price markup shock')
+        etas        ${\eta_s}$         (long_name='Labor supply shock')
+        etaw        ${\eta_w}$         (long_name='Wage markup shock')
+        etar        ${\eta_r}$         (long_name='Monetary policy shock')
 ;
+
 parameters 
         ch          // habit parameter
         ctau        // trend growth rate
@@ -80,6 +87,7 @@ parameters
         crhob crhoq crhog crhoa crhoga crhop cmup crhos crhow cmuw crhor
 
 ;
+
 // parameter declaration 
 // calibrated
 cdelta  = 0.025 ; 
@@ -151,24 +159,25 @@ ccy     = 1-ciy-cgy;
 cvy     = crk*cky;
 
 //helpers
-c1      =1/(1+ch/ctau);
-c2      =(1-ch/ctau)/(1+ch/ctau);
+c1      = 1/(1+ch/ctau);
+c2      = (1-ch/ctau)/(1+ch/ctau);
 i1      = 1/(1+cbeta);
 i2      = i1/(ctau^2*cphi);
 q1      = crk/(crk+1-cdelta);
 pi1     = cbeta;
 pi2     = ((1-cthetap*cbeta)*(1-cthetap))/(cthetap*(1+(cpsip-1)*cepsp));
 w1      = ((1-cthetaw*cbeta)*(1-cthetaw))/(cthetaw*(1+comega*cepsw));
-k1      =(1-cdelta)/ctau;
-k2      =(ctau+cdelta-1)*(1+cbeta)*ctau*cphi;
+k1      = (1-cdelta)/ctau;
+k2      = (ctau+cdelta-1)*(1+cbeta)*ctau*cphi;
 e1      = ((1-cthetae*cbeta)*(1-cthetae))/cthetae;
 
 model(linear);
 
 // sticky model
 
-// 1 consumption euler equation
+[name='Eq (1).: Consumption Euler Equation']
 c=c1*c(+1)+(1-c1)*c(-1)-c2*(r-pi(+1)-epsilonb);
+
 // 2 investment euler equation
 i=i1*i(-1)+(1-i1)*i(+1)+i2*q+epsilonq;
 // 3 value of capital stock
@@ -257,27 +266,16 @@ steady;
 check;
 
 shocks;
-//productivity shock
-var etaa;
-stderr 0.570053 ; 
-//wedge between FFR  and return on assets
-var etab;
-stderr 0.254028 ; 
-var etag;  
-stderr 0.305013 ; 
-//investment specific technology
-var etaq;
-stderr 0.485825 ;
-var etar;
-stderr 0.111101 ; 
-var etap;
-stderr 0.379025 ; 
-var etaw;
-stderr 0.354961 ; 
-var etas;
-stderr 1.012299 ; 
+    var etaa; stderr 0.570053;
+    var etab; stderr 0.254028;
+    var etag; stderr 0.305013;
+    var etaq; stderr 0.485825;
+    var etar; stderr 0.111101;
+    var etap; stderr 0.379025;
+    var etaw; stderr 0.354961;
+    var etas; stderr 1.012299;
 end;
 
-stoch_simul(periods = 1000, irf = 21) y piyear ryear e u ygap;
+stoch_simul(periods = 1000, irf = 21) y c;
 
 write_latex_dynamic_model;
