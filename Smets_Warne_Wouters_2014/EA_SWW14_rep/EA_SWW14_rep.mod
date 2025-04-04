@@ -1,23 +1,24 @@
 var     
-        c           // consumption
-        r           // nominal interest rate
-        pi          // inflation rate
-        i           // investment
-        q           // value of capital stock
-        rk          // expected return on holding capital
-        y           // output
-        v           // capital utilization
-        k           // capital used in production
-        n           // hours worked
-        mc          // marginal cost
-        w           // real wage
-        z           // smoothed trend of consumption
-        u           // unemplayment rate
-        e           // employment
-        un          // natural rate of unemployment (flex wage)
-        l           // labor force
-        kbar        // capital stock
-        ygap        // output gap
+        c           ${c}$         (long_name='Consumption')
+        r           ${r}$         (long_name='Nominal interest rate')
+        pi          ${\pi}$       (long_name='Inflation rate')
+        i           ${i}$         (long_name='Investment')
+        q           ${q}$         (long_name='Value of capital stock')
+        rk          ${r^{k}}$     (long_name='Expected return on capital')
+        y           ${y}$         (long_name='Output')
+        v           ${v}$         (long_name='Capital utilization')
+        k           ${k}$         (long_name='Capital used in production')
+        n           ${n}$         (long_name='Hours worked')
+        mc          ${mc}$        (long_name='Marginal cost')
+        w           ${w}$         (long_name='Real wage')
+        z           ${z}$         (long_name='Smoothed trend of consumption')
+        u           ${u}$         (long_name='Unemployment rate')
+        e           ${e}$         (long_name='Employment')
+        un          ${u^{n}}$     (long_name='Natural rate of unemployment (flex wage)')
+        l           ${l}$         (long_name='Labor force')
+        kbar        ${\bar{k}}$   (long_name='Capital stock')
+        ygap        ${y^{gap}}$   (long_name='Output gap')
+
 
         // flex variables
         cf rf invf qf rkf vf kf nf wf zf ef kbarf yf
@@ -278,3 +279,5 @@ stderr 1.012299 ;
 end;
 
 stoch_simul(periods = 1000, irf = 21) y piyear ryear e u ygap;
+
+write_latex_dynamic_model;
