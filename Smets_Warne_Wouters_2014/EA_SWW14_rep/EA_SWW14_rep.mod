@@ -45,14 +45,14 @@ var
         epsilon_r    ${\varepsilon_r}$     (long_name='Monetary policy shock')
 
      // measurement equations
-        dy_obs   ${dy^{obs}}$            (long_name = 'Output growth (observed)')
-        dc_obs   ${dc^{obs}}$            (long_name = 'Consumption growth (observed)')
-        di_obs   ${di^{obs}}$            (long_name = 'Investment growth (observed)')
-        pi_obs   ${\pi^{obs}}$           (long_name = 'Inflation (observed)')
-        dw_obs   ${dw^{obs}}$            (long_name = 'Real wage growth (observed)')
-        de_obs   ${de^{obs}}$            (long_name = 'Employment growth (observed)')
-        u_obs    ${u^{obs}}$             (long_name = 'Unemployment rate (observed)')
-        r_obs    ${r^{obs}}$             (long_name = 'Interest rate (observed)')
+        dy_obs   ${\Delta y^{obs}}$            (long_name = 'Output growth (observed)')
+        dc_obs   ${\Delta c^{obs}}$            (long_name = 'Consumption growth (observed)')
+        di_obs   ${\Delta i^{obs}}$            (long_name = 'Investment growth (observed)')
+        pi_obs   ${\pi^{obs}}$                 (long_name = 'Inflation (observed)')
+        dw_obs   ${\Delta w^{obs}}$            (long_name = 'Real wage growth (observed)')
+        de_obs   ${\Delta e^{obs}}$            (long_name = 'Employment growth (observed)')
+        u_obs    ${u^{obs}}$                   (long_name = 'Unemployment rate (observed)')
+        r_obs    ${r^{obs}}$                   (long_name = 'Interest rate (observed)')
 
      // annualized rates
         r_year    ${r^{ann}}$            (long_name = 'Nominal interest rate (annualized)')
@@ -76,32 +76,32 @@ parameters
         c_beta       ${\beta}$               (long_name = 'Discount factor')
         c_phi        ${\phi}$                (long_name = 'Elasticity of the capital adjustment cost function')
         c_delta      ${\delta}$              (long_name = 'Depreciation of capital')
-        c_psi_p       ${\psi_p}$              (long_name = 'Reflects fixed costs in production')
+        c_psi_p      ${\psi_p}$              (long_name = 'Reflects fixed costs in production')
         c_alpha      ${\alpha}$              (long_name = 'Cobb-Douglas parameter')
-        c_gamma_p     ${\gamma_p}$            (long_name = 'Price indexation')
-        c_theta_p     ${\theta_p}$            (long_name = 'Probability of price change')
-        c_eps_p       ${\varepsilon_p}$       (long_name = 'Curvature of the price aggregator function')
-        c_gamma_w     ${\gamma_w}$            (long_name = 'Wage indexation')
-        c_theta_w     ${\theta_w}$            (long_name = 'Probability of wage change')
-        c_eps_w       ${\varepsilon_w}$       (long_name = 'Curvature of the wage aggregator function')
+        c_gamma_p    ${\gamma_p}$            (long_name = 'Price indexation')
+        c_theta_p    ${\theta_p}$            (long_name = 'Probability of price change')
+        c_eps_p      ${\varepsilon_p}$       (long_name = 'Curvature of the price aggregator function')
+        c_gamma_w    ${\gamma_w}$            (long_name = 'Wage indexation')
+        c_theta_w    ${\theta_w}$            (long_name = 'Probability of wage change')
+        c_eps_w      ${\varepsilon_w}$       (long_name = 'Curvature of the wage aggregator function')
         c_omega      ${\omega}$              (long_name = 'Inverse elasticity of labor supply')
         c_v          ${v}$                   (long_name = 'Captures short run wealth effect on labor supply')
         c_psi        ${\psi}$                (long_name = 'Elasticity of the capital utilization cost function')
-        c_rho_intr    ${\rho_{i}}$            (long_name = 'Persistence of monetary policy rule')
+        c_rho_intr   ${\rho_{i}}$            (long_name = 'Persistence of monetary policy rule')
         c_rpi        ${r_{\pi}}$             (long_name = 'Coefficient on inflation')
         c_ry         ${r_{y}}$               (long_name = 'Coefficient on output gap')
         c_rdy        ${r_{\Delta y}}$        (long_name = 'Coefficient on change in output gap')
-        c_theta_e     ${\theta_e}$            (long_name = 'Fraction of firms able to adjust employment')
+        c_theta_e    ${\theta_e}$            (long_name = 'Fraction of firms able to adjust employment')
 
      // steady state (SS) parameters
-        c_rk        ${c_{rk}}$              (long_name = 'Steady state return on capital')
-        c_cy        ${\frac{\bar{c}}{y}}$   (long_name = 'Steady state consumption-output ratio')
-        c_iy        ${\frac{\bar{i}}{y}}$   (long_name = 'Steady state investment-output ratio')
-        c_vy        ${\frac{\bar{v}}{y}}$   (long_name = 'Steady state capital utilization-output ratio')
-        c_gy        ${\frac{\bar{g}}{y}}$   (long_name = 'Steady state government spending-output ratio')
-        c_ky        ${\frac{\bar{k}}{y}}$   (long_name = 'Steady state capital-output ratio')
+        c_rk         ${c_{rk}}$              (long_name = 'Steady state return on capital')
+        c_cy         ${\frac{\bar{c}}{y}}$   (long_name = 'Steady state consumption-output ratio')
+        c_iy         ${\frac{\bar{i}}{y}}$   (long_name = 'Steady state investment-output ratio')
+        c_vy         ${\frac{\bar{v}}{y}}$   (long_name = 'Steady state capital utilization-output ratio')
+        c_gy         ${\frac{\bar{g}}{y}}$   (long_name = 'Steady state government spending-output ratio')
+        c_ky         ${\frac{\bar{k}}{y}}$   (long_name = 'Steady state capital-output ratio')
         c_tau_bar    ${\bar{\tau}}$          (long_name = 'Steady state average tax rate')
-        c_pi        ${c_{\pi}}$             (long_name = 'Steady state inflation rate')
+        c_pi         ${c_{\pi}}$             (long_name = 'Steady state inflation rate')
         c_pi_bar     ${\bar{\pi}}$           (long_name = 'Target inflation (steady state)')
         c_r_bar      ${\bar{r}}$             (long_name = 'Steady state nominal interest rate')
         c_u_bar      ${\bar{u}}$             (long_name = 'Steady state unemployment rate')
@@ -255,7 +255,7 @@ w - w(-1) + pi = c_gamma_w*pi(-1) + c_beta*(w(+1) - w + pi(+1) - c_gamma_w*pi) -
 c_omega*u = w - (z + epsilon_s + c_omega*e);
 
 [name='Eq (10).: Natural Unemployment']
-c_omega*un = 100*epsilon_w;
+c_omega * un = 100 * epsilon_w;
 
 [name='Eq (11).: Labor Force']
 l = u + e;
@@ -303,31 +303,30 @@ ef-ef(-1)=c_beta*(ef(+1)-ef)+e1*(nf-ef);
 ygap=y-yf;
 
 // shock processes
-epsilon_b=c_rho_b * epsilon_b(-1) + eta_b;
-epsilon_q=c_rho_q * epsilon_q(-1) + eta_q;
-epsilon_g=c_rho_g*epsilon_g(-1) + eta_g + c_rho_ga * eta_a;
-epsilon_a=c_rho_a*epsilon_a(-1) + eta_a;
-epsilon_p=c_rho_p*epsilon_p(-1) + eta_p - c_mu_p * eta_p(-1);
-epsilon_r=c_rho_r*epsilon_r(-1) + eta_r;
-epsilon_s=c_rho_s*epsilon_s(-1) + eta_s;
-epsilon_w=c_rho_w*epsilon_w(-1) + eta_w - c_mu_w * eta_w(-1);
+epsilon_b = c_rho_b * epsilon_b(-1) + eta_b;
+epsilon_q = c_rho_q * epsilon_q(-1) + eta_q;
+epsilon_g = c_rho_g * epsilon_g(-1) + eta_g + c_rho_ga * eta_a;
+epsilon_a = c_rho_a * epsilon_a(-1) + eta_a;
+epsilon_p = c_rho_p * epsilon_p(-1) + eta_p - c_mu_p * eta_p(-1);
+epsilon_r = c_rho_r * epsilon_r(-1) + eta_r;
+epsilon_s = c_rho_s * epsilon_s(-1) + eta_s;
+epsilon_w = c_rho_w * epsilon_w(-1) + eta_w - c_mu_w * eta_w(-1);
 
 // measurement equations
-dy_obs=c_tau_bar+c_e_bar+y-y(-1);
-dc_obs=c_tau_bar+c_e_bar+c-c(-1);
-di_obs=c_tau_bar+c_e_bar+i-i(-1);
-pi_obs=c_pi_bar+pi;
-dw_obs-pi_obs=c_tau_bar+w-w(-1)-(pi-pi(-1));
-de_obs=c_e_bar+e-e(-1);
-u_obs=c_u_bar+u;
-r_obs=4*c_r_bar+4*r;
+dy_obs = c_tau_bar+c_e_bar+y-y(-1);
+dc_obs = c_tau_bar+c_e_bar+c-c(-1);
+di_obs = c_tau_bar+c_e_bar+i-i(-1);
+pi_obs = c_pi_bar+pi;
+dw_obs - pi_obs=c_tau_bar+w-w(-1)-(pi-pi(-1));
+de_obs = c_e_bar+e-e(-1);
+u_obs = c_u_bar+u;
+r_obs = 4*c_r_bar+4*r;
 
 // annualzied rates
 r_year=4*r;
 pi_year=pi+pi(-1)+pi(-2)+pi(-3);
 
 end; 
-
 
 //resid(1);
 steady;
