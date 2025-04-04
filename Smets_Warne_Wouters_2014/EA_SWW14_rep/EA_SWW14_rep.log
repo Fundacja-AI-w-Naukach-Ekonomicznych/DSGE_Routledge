@@ -56,24 +56,24 @@ zf               		 0
 ef               		 0
 kbarf            		 0
 yf               		 0
-epsilonb         		 0
-epsilonq         		 0
-epsilong         		 0
-epsilona         		 0
-epsilonp         		 0
-epsilons         		 0
-epsilonw         		 0
-epsilonr         		 0
-dyobs            		 0.357215
-dcobs            		 0.357215
-diobs            		 0.357215
-piobs            		 0.56137
-dwobs            		 0.692218
-deobs            		 0.226367
-uobs             		 9.28777
-robs             		 3.85349
-ryear            		 0
-piyear           		 0
+epsilon_b        		 0
+epsilon_q        		 0
+epsilon_g        		 0
+epsilon_a        		 0
+epsilon_p        		 0
+epsilon_s        		 0
+epsilon_w        		 0
+epsilon_r        		 0
+dy_obs           		 0.357215
+dc_obs           		 0.357215
+di_obs           		 0.357215
+pi_obs           		 0.56137
+dw_obs           		 0.692218
+de_obs           		 0.226367
+u_obs            		 9.28777
+r_obs            		 3.85349
+r_year           		 0
+pi_year          		 0
 
 EIGENVALUES:
          Modulus             Real        Imaginary
@@ -149,14 +149,14 @@ kbar(-1)                   -0.111947        0.092081
 ygap(-1)                    0.003358        0.003361
 zf(-1)                     -0.049820       -0.043081
 kbarf(-1)                   0.055216        0.048132
-epsilonb(-1)                1.716629        1.643357
-epsilonq(-1)                0.174586       -0.012999
-epsilong(-1)                0.739045       -0.462032
-epsilona(-1)                0.459117        0.659271
-epsilonp(-1)                0.199848       -0.002839
-epsilons(-1)               -0.082777       -0.105237
-epsilonw(-1)                0.555500        0.027503
-epsilonr(-1)                0.635772        0.619541
+epsilon_b(-1)               1.716629        1.643357
+epsilon_q(-1)               0.174586       -0.012999
+epsilon_g(-1)               0.739045       -0.462032
+epsilon_a(-1)               0.459117        0.659271
+epsilon_p(-1)               0.199848       -0.002839
+epsilon_s(-1)              -0.082777       -0.105237
+epsilon_w(-1)               0.555500        0.027503
+epsilon_r(-1)               0.635772        0.619541
 eta_p(-2)                  -0.182761        0.002596
 eta_w(-2)                  -0.507202       -0.025112
 c(-1)                       0.388759        0.595919
@@ -201,4 +201,4 @@ y               12.67              0.71              0.59             66.08     
 c                6.45              0.46             10.82             48.62              0.08             28.30              0.29              0.92             95.94
 Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
 
-Total computing time : 0h00m05s
+Total computing time : 0h00m06s
