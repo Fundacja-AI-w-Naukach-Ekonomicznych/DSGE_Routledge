@@ -19,22 +19,25 @@ var
         kbar        ${\bar{k}}$   (long_name='Capital stock')
         ygap        ${y^{gap}}$   (long_name='Output gap')
 
-     // flex variables
-        cf       ${c^{f}}$            Consumption (flex prices)
-        rf       ${r^{f}}$            Nominal interest rate (flex prices)
-        invf     ${i^{f}}$            Investment (flex prices)
-        qf       ${q^{f}}$            Value of capital stock (flex prices)
-        rkf      ${r^{k,f}}$          Return on capital (flex prices)
-        vf       ${v^{f}}$            Capital utilization (flex prices)
-        kf       ${k^{f}}$            Capital used in production (flex prices)
-        nf       ${n^{f}}$            Hours worked (flex prices)
-        wf       ${w^{f}}$            Real wage (flex prices)
-        zf       ${z^{f}}$            Smoothed trend of consumption (flex prices)
-        ef       ${e^{f}}$            Employment (flex prices)
-        kbarf    ${\bar{k}^{f}}$      Capital stock (flex prices)
-        yf       ${y^{f}}$            Output (flex prices)
+        // flex variables
+        cf rf invf qf rkf vf kf nf wf zf ef kbarf yf
 
-     // shocks
+            // flex variables
+        cf      // ${c^{f}}$            Consumption (flex prices)
+        rf      // ${r^{f}}$            Nominal interest rate (flex prices)
+        invf    // ${i^{f}}$            Investment (flex prices)
+        qf      // ${q^{f}}$            Value of capital stock (flex prices)
+        rkf     // ${r^{k,f}}$          Return on capital (flex prices)
+        vf      // ${v^{f}}$            Capital utilization (flex prices)
+        kf      // ${k^{f}}$            Capital used in production (flex prices)
+        nf      // ${n^{f}}$            Hours worked (flex prices)
+        wf      // ${w^{f}}$            Real wage (flex prices)
+        zf      // ${z^{f}}$       Smoothed trend of consumption (flex prices)
+        ef      // ${e^{f}}$       Employment (flex prices)
+        kbarf   // ${\bar{k}^{f}}$ Capital stock (flex prices)
+        yf      // ${y^{f}}$       Output (flex prices)
+
+        // shocks
         epsilonb    ${\varepsilon_b}$     (long_name='Risk premium shock')
         epsilonq    ${\varepsilon_q}$     (long_name='Investment-specific technology shock')
         epsilong    ${\varepsilon_g}$     (long_name='Government spending shock')
@@ -44,19 +47,12 @@ var
         epsilonw    ${\varepsilon_w}$     (long_name='Wage markup shock')
         epsilonr    ${\varepsilon_r}$     (long_name='Monetary policy shock')
 
-     // measurement equations
-        dyobs   // ${dy^{obs}}$            Output growth (observed)
-        dcobs   // ${dc^{obs}}$            Consumption growth (observed)
-        diobs   // ${di^{obs}}$            Investment growth (observed)
-        piobs   // ${\pi^{obs}}$           Inflation (observed)
-        dwobs   // ${dw^{obs}}$            Real wage growth (observed)
-        deobs   // ${de^{obs}}$            Employment growth (observed)
-        uobs    // ${u^{obs}}$             Unemployment rate (observed)
-        robs    // ${r^{obs}}$             Interest rate (observed)
+        // measurement equations
+        dyobs dcobs diobs piobs dwobs deobs uobs robs 
 
-     // annualized rates
-        ryear    // ${r^{ann}}$       Nominal interest rate (annualized)
-        piyear   // ${\pi^{ann}}$     Inflation rate (annualized)
+        // annualized rates
+        ryear piyear
+
 ;
 
 varexo  
@@ -93,53 +89,17 @@ parameters
         crdy        // coeff on change in output gap
         cthetae     // fraction of firms able to adjust employment
 
-     // steady state (SS) parameters
-        crk        // ${c_{rk}}$            Steady state return on capital
-        ccy        // ${c_{cy}}$            Steady state consumption-output ratio
-        ciy        // ${c_{iy}}$            Steady state investment-output ratio
-        cvy        // ${c_{vy}}$            Steady state capital utilization-output ratio
-        cgy        // ${c_{gy}}$            Steady state government spending-output ratio
-        cky        // ${c_{ky}}$            Steady state capital-output ratio
-        ctaubar    // ${c_{\bar{\tau}}}$    Steady state average tax rate
-        cpi        // ${c_{\pi}}$           Steady state inflation rate
-        cpibar     // ${c_{\bar{\pi}}}$     Target inflation (steady state)
-        crbar      // ${c_{\bar{r}}}$       Steady state nominal interest rate
-        cubar      // ${c_{\bar{u}}}$       Steady state unemployment rate
-        cebar      // ${c_{\bar{e}}}$       Steady state employment
-        cbetabar   // ${c_{\bar{\beta}}}$   Steady state discount factor
+        // steady state (SS) parameters
+        crk ccy ciy cvy cgy cky ctaubar cpi cpibar crbar cubar cebar cbetabar
+        cpsiw       // psiw-1 is ss labor market markup
+        // new defined parameters for SS
+        clk cw
 
+        // helpers
+        c1 c2 i1 i2 q1 pi1 pi2 w1 k1 k2 e1
 
-        cpsiw     // ${c_{\psi^w}}$       Steady state labor market markup parameter (psiw−1)
-
-     // new defined parameters for SS
-        clk       // ${c_{lk}}$           Steady state labor-capital ratio
-        cw        // ${c_{w}}$            Steady state real wage
-
-     // helpers
-        c1        // ${c_1}$              Helper constant 1
-        c2        // ${c_2}$              Helper constant 2
-        i1        // ${i_1}$              Investment-related helper 1
-        i2        // ${i_2}$              Investment-related helper 2
-        q1        // ${q_1}$              Capital value helper
-        pi1       // ${\pi_1}$            Inflation helper 1
-        pi2       // ${\pi_2}$            Inflation helper 2
-        w1        // ${w_1}$              Wage helper 1
-        k1        // ${k_1}$              Capital helper 1
-        k2        // ${k_2}$              Capital helper 2
-        e1        // ${e_1}$              Employment helper 1
-
-     // shocks
-        crhob     // ${\rho_b}$           Persistence of risk premium shock
-        crhoq     // ${\rho_q}$           Persistence of investment-specific shock
-        crhog     // ${\rho_g}$           Persistence of government spending shock
-        crhoa     // ${\rho_a}$           Persistence of productivity shock
-        crhoga    // ${\rho_{ga}}$        Persistence of growth of productivity
-        crhop     // ${\rho_p}$           Persistence of price markup shock
-        cmup      // ${\mu_p}$            Steady state price markup
-        crhos     // ${\rho_s}$           Persistence of labor supply shock
-        crhow     // ${\rho_w}$           Persistence of wage markup shock
-        cmuw      // ${\mu_w}$            Steady state wage markup
-        crhor     // ${\rho_r}$           Persistence of monetary policy shock
+        // shocks
+        crhob crhoq crhog crhoa crhoga crhop cmup crhos crhow cmuw crhor
 
 ;
 
@@ -233,56 +193,40 @@ model(linear);
 [name='Eq (1).: Consumption Euler Equation']
 c=c1*c(+1)+(1-c1)*c(-1)-c2*(r-pi(+1)-epsilonb);
 
-[name='Eq (2).: Investment Euler Equation']
-i = i1*i(-1) + (1 - i1)*i(+1) + i2*q + epsilonq;
-
-[name='Eq (3).: Value of Capital Stock']
-q = -(r - pi(+1) - epsilonb) + q1*rk(+1) + (1 - q1)*q(+1);
-
-[name='Eq (4).: Aggregate Resource Constraint']
-y = ccy*c + ciy*i + cvy*v + epsilong;
-
-[name='Eq (5).: Cobb-Douglas Production Function']
-y = cpsip*(calpha*k + (1 - calpha)*n + epsilona);
-
-[name='Eq (6).: Calvo Pricing']
-pi - cgammap*pi(-1) = pi1*(pi(+1) - cgammap*pi) - pi2*(-mc + 100*epsilonp);
-
-[name='Eq (7).: Marginal Cost']
-mc = (1 - calpha)*w + calpha*rk - epsilona;
-
-[name='Eq (8).: Calvo Wage Setting']
-w - w(-1) + pi = cgammaw*pi(-1) + cbeta*(w(+1) - w + pi(+1) - cgammaw*pi) - w1*(comega*u - 100*epsilonw);
-
-[name='Eq (9).: Average Wage Markup and Unemployment']
-comega*u = w - (z + epsilons + comega*e);
-
-[name='Eq (10).: Natural Unemployment']
-comega*un = 100*epsilonw;
-
-[name='Eq (11).: Labor Force']
-l = u + e;
-
-[name='Eq (12).: Smoothed Trend of Consumption']
-z = (1 - cv)*z(-1) + cv/(1 - ch/ctau)*(c - ch/ctau*c(-1));
-
-[name='Eq (13).: Capital Stock']
-kbar = k1*kbar(-1) + (1 - k1)*i + k2*epsilonq;
-
-[name='Eq (14).: Capital Services Production']
-k = v + kbar(-1);
-
-[name='Eq (15).: Optimal Capital Utilization']
-v = (1 - cpsi)/cpsi*rk;
-
-[name='Eq (16).: Optimal Capital-Labor Condition']
-k = w - rk + n;
-
-[name='Eq (17).: Monetary Policy Rule']
-r = crhointr*r(-1) + (1 - crhointr)*(crpi*pi + cry*ygap + crdy*(ygap - ygap(-1))) - epsilonr;
-
-[name='Eq (18).: Employment/Technology']
-e - e(-1) = cbeta*(e(+1) - e) + e1*(n - e);
+// 2 investment euler equation
+i=i1*i(-1)+(1-i1)*i(+1)+i2*q+epsilonq;
+// 3 value of capital stock
+q=-(r-pi(+1)-epsilonb)+q1*rk(+1)+(1-q1)*q(+1);
+// 4 aggregate resource constraint 
+y=ccy*c+ciy*i+cvy*v+epsilong;
+// 5 cobb-douglas production function
+y=cpsip*(calpha*k+(1-calpha)*n+epsilona);
+// 6 Calvo pricing
+pi-cgammap*pi(-1)=pi1*(pi(+1)-cgammap*pi)-pi2*(-mc+100*epsilonp);
+// 7 marginal cost
+mc=(1-calpha)*w+calpha*rk-epsilona;
+// 8 Calvo wage setting
+w-w(-1)+pi=cgammaw*pi(-1)+cbeta*(w(+1)-w+pi(+1)-cgammaw*pi)-w1*(comega*u-100*epsilonw);
+// 9 average wage markup und unemployment
+comega*u= w-(z+epsilons+comega*e);
+// 10 natural unemployment
+comega*un=100*epsilonw;
+// 11 labor force
+l=u+e;
+// 12 smoothed trend of consumption
+z=(1-cv)*z(-1)+cv/(1-ch/ctau)*(c-ch/ctau*c(-1));
+// 13 capital stock
+kbar=k1*kbar(-1)+(1-k1)*i+k2*epsilonq;
+// 14 capital services production
+k=v+kbar(-1);
+// 15 optimal capital utilization condition
+v=(1-cpsi)/cpsi*rk;
+// 16 optimal capital labor condition
+k=w-rk+n;
+// 17 monetary policy rule
+r=crhointr*r(-1)+(1-crhointr)*(crpi*pi+cry*ygap+crdy*(ygap-ygap(-1)))-epsilonr;
+// 18 employment/productivity
+e-e(-1)=cbeta*(e(+1)-e)+e1*(n-e);
 
 
 //flex model
