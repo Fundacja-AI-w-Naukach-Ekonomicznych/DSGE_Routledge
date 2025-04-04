@@ -303,11 +303,11 @@ ef-ef(-1)=c_beta*(ef(+1)-ef)+e1*(nf-ef);
 ygap=y-yf;
 
 // shock processes
-epsilon_b = c_rho_b * epsilon_b(-1) + eta_b;
-epsilon_q = c_rho_q * epsilon_q(-1) + eta_q;
-epsilon_g = c_rho_g * epsilon_g(-1) + eta_g + c_rho_ga * eta_a;
 epsilon_a = c_rho_a * epsilon_a(-1) + eta_a;
+epsilon_b = c_rho_b * epsilon_b(-1) + eta_b;
+epsilon_g = c_rho_g * epsilon_g(-1) + eta_g + c_rho_ga * eta_a;
 epsilon_p = c_rho_p * epsilon_p(-1) + eta_p - c_mu_p * eta_p(-1);
+epsilon_q = c_rho_q * epsilon_q(-1) + eta_q;
 epsilon_r = c_rho_r * epsilon_r(-1) + eta_r;
 epsilon_s = c_rho_s * epsilon_s(-1) + eta_s;
 epsilon_w = c_rho_w * epsilon_w(-1) + eta_w - c_mu_w * eta_w(-1);
@@ -343,6 +343,78 @@ shocks;
     var eta_s; stderr 1.012299;
 end;
 
+varobs 
+    dy_obs 
+    dc_obs 
+    di_obs 
+    pi_obs 
+    dw_obs 
+    de_obs 
+    u_obs 
+    r_obs;
+
+estimated_params;
+  stderr eta_a,  0.254028,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
+  stderr eta_b,  0.254028,   0.025, 5,  INV_GAMMA_PDF,  0.1,2;
+  stderr eta_g,  0.305013,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
+  stderr eta_q,  0.485825,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
+  stderr eta_r,  0.111101,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
+  stderr eta_p,  0.379025,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
+  stderr eta_w,  0.354961,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
+  stderr eta_s,  1.012299,   0.01,  5,  INV_GAMMA_PDF,  0.1,2;
+
+  //ARMA Components
+  c_rho_a,    0.982716,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+  c_rho_b,    0.915697,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+  c_rho_q,    0.345078,   .01,  .9999,  BETA_PDF,   0.5,    0.20; //rhoi
+  c_rho_g,    0.992875,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+  c_rho_ga,   0.196454,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+  c_rho_p,    0.624064,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+  c_rho_w,    0.905390,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+  c_rho_r,    0.316487,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+  c_mu_p,     0.570707,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+  c_mu_w,     0.826670,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
+
+  //cphi,6.3325,2,15,NORMAL_PDF,4,1.5; //csadjcost -> cphi
+  //csigma,1.2312,0.25,3,NORMAL_PDF,1.50,0.375;
+  //ch,0.7205,0.001,0.99,BETA_PDF,0.7,0.1; //chabb -> ch
+  //cthetaw,0.7937,0.3,0.95,BETA_PDF,0.5,0.1; //cprobw -> cthetaw
+  //csigl,2.8401,0.25,10,NORMAL_PDF,2,0.75; //csigl -> comega
+  //cthetap,0.7813,0.5,0.95,BETA_PDF,0.5,0.10; //cprobp -> cthetap
+  //cgammaw,0.4425,0.01,0.99,BETA_PDF,0.5,0.15; //cindw -> cgammaw
+  //cgammap,0.3291,0.01,0.99,BETA_PDF,0.5,0.15; //cindp -> cgammap
+  //cpsi,0.2648,0.01,1,BETA_PDF,0.5,0.15; //czcap -> cpsi
+  //cpsip,1.4672,1.0,3,NORMAL_PDF,1.25,0.125; //cfc -> cpsip
+  //crpi,1.7985,1.0,3,NORMAL_PDF,1.5,0.25; //ok
+  //crr,0.8258,0.5,0.975,BETA_PDF,0.75,0.10; //crr -> crhointr
+  //cry,0.0893,0.001,0.5,NORMAL_PDF,0.125,0.05;
+  //crdy,0.2239,0.001,0.5,NORMAL_PDF,0.125,0.05;
+  //cpibar,0.7,0.1,2.0,GAMMA_PDF,0.625,0.1;//20; //constepinf -> cpibar
+  //cbetabar,0.7420,0.01,2.0,GAMMA_PDF,0.25,0.1;//0.20; //constebeta -> cbetabar
+  //constelab,1.2918,-10.0,10.0,NORMAL_PDF,0.0,2.0;
+  //ctau,0.3982,0.1,0.8,NORMAL_PDF,0.4,0.10; //ctrend -> ctau
+  //calpha,0.24,0.01,1.0,NORMAL_PDF,0.3,0.05; //calfa -> calpha
+end;
+
+estimation(optim=('MaxIter',200),
+           datafile='SWW2014_data.mat',
+           mode_compute=6, first_obs=1, 
+           presample=4,lik_init=2, prefilter=0,mh_replic=0, 
+           mh_nblocks=2, mh_jscale=0.20, mh_drop=0.2, nograph, 
+           nodiagnostic, tex);
+
+%estimation(optim=('MaxIter',200),
+%           datafile='SWW2014_data.mat',
+%           mode_file = 'EA_SWW14_rep_mode.mat',
+%           mode_compute=0, first_obs=1, 
+%           presample=4,lik_init=2, prefilter=0,mh_replic=0, 
+%           mh_nblocks=2, mh_jscale=0.20, mh_drop=0.2, nograph, 
+%           nodiagnostic, tex);
+
+
+shock_decomposition dy_obs de_obs;
+
 stoch_simul(periods = 1000, irf = 21) y c;
 
 write_latex_dynamic_model;
+

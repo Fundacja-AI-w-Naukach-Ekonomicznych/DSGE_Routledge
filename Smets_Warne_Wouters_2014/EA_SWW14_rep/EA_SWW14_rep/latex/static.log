@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.12)  4 APR 2025 13:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.12)  4 APR 2025 10:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./dynamic.tex
-(dynamic.tex
+**./static.tex
+(static.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28>
 (C:\Users\jakub\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -279,8 +279,8 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \cur@col=\count292
 \conditionsep=\skip63
 )
-(dynamic.aux (dynamic_content.aux))
-\openout1 = `dynamic.aux'.
+(static.aux (static_content.aux))
+\openout1 = `static.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
@@ -357,9 +357,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\openout2 = `dynamic_content.aux'.
+\openout2 = `static_content.aux'.
 
- (dynamic_content.tex
+ (static_content.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
 (C:\Users\jakub\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
@@ -373,29 +373,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 
-{C:/Users/jakub/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2])
-[3] (dynamic.aux (dynamic_content.aux)) ) 
+{C:/Users/jakub/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) [2]
+(static.aux (static_content.aux)) ) 
 Here is how much of TeX's memory you used:
  3613 strings out of 475385
- 57452 string characters out of 2776906
- 425111 words of memory out of 3000000
+ 57412 string characters out of 2776906
+ 422109 words of memory out of 3000000
  24958 multiletter control sequences out of 15000+600000
  473004 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,8n,85p,270b,266s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<C:/Users/jakub/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/jakub/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jakub/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users
-/jakub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Users/jakub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-6.pfb><C:/Users/jakub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr8.pfb><C:/Users/jakub/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy6.pfb><C:/Users/jakub/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmsy8.pfb>
-Output written on dynamic.pdf (3 pages, 92602 bytes).
+ 70i,7n,85p,246b,258s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<C:/Users/jakub/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/jakub/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jakub/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jakub
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Use
+rs/jakub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+<C:/Users/jakub/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb>
+Output written on static.pdf (2 pages, 68716 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
+ 39 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

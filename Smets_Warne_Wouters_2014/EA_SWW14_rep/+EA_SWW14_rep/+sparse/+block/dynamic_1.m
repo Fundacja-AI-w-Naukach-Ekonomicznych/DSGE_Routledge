@@ -1,8 +1,8 @@
 function [y, T] = dynamic_1(y, x, params, steady_state, sparse_rowval, sparse_colval, sparse_colptr, T)
+  y(90)=params(52)*y(36)+x(4);
   y(87)=params(49)*y(33)+x(1);
+  y(89)=params(51)*y(35)+x(3)+x(4)*params(53);
   y(88)=params(50)*y(34)+x(2);
-  y(89)=params(51)*y(35)+x(3)+params(53)*x(4);
-  y(90)=x(4)+params(52)*y(36);
   y(94)=params(59)*y(40)+x(8);
   y(92)=params(56)*y(38)+x(6);
   y(107)=x(5);

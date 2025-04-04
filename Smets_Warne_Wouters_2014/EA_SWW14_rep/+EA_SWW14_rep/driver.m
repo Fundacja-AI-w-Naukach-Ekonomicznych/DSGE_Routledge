@@ -4,8 +4,6 @@
 % Warning : this file is generated automatically by Dynare
 %           from model file (.mod)
 
-clearvars -global
-clear_persistent_variables(fileparts(which('dynare')), false)
 tic0 = tic;
 % Define global variables.
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info
@@ -417,6 +415,16 @@ M_.aux_vars(4).type = 3;
 M_.aux_vars(4).orig_index = 7;
 M_.aux_vars(4).orig_lead_lag = 0;
 M_.aux_vars(4).orig_expr = 'eta_w';
+options_.varobs = cell(8, 1);
+options_.varobs(1)  = {'dy_obs'};
+options_.varobs(2)  = {'dc_obs'};
+options_.varobs(3)  = {'di_obs'};
+options_.varobs(4)  = {'pi_obs'};
+options_.varobs(5)  = {'dw_obs'};
+options_.varobs(6)  = {'de_obs'};
+options_.varobs(7)  = {'u_obs'};
+options_.varobs(8)  = {'r_obs'};
+options_.varobs_id = [ 41 42 43 44 45 46 47 48  ];
 M_.Sigma_e = zeros(8, 8);
 M_.Correlation_matrix = eye(8, 8);
 M_.H = 0;
@@ -549,11 +557,11 @@ M_.equations_tags = {
   30 , 'name' , '30' ;
   31 , 'name' , '31' ;
   32 , 'name' , 'ygap' ;
-  33 , 'name' , 'epsilon_b' ;
-  34 , 'name' , 'epsilon_q' ;
+  33 , 'name' , 'epsilon_a' ;
+  34 , 'name' , 'epsilon_b' ;
   35 , 'name' , 'epsilon_g' ;
-  36 , 'name' , 'epsilon_a' ;
-  37 , 'name' , 'epsilon_p' ;
+  36 , 'name' , 'epsilon_p' ;
+  37 , 'name' , 'epsilon_q' ;
   38 , 'name' , 'epsilon_r' ;
   39 , 'name' , 'epsilon_s' ;
   40 , 'name' , 'epsilon_w' ;
@@ -600,11 +608,11 @@ M_.mapping.zf.eqidx = [25 26 ];
 M_.mapping.ef.eqidx = [31 ];
 M_.mapping.kbarf.eqidx = [27 28 ];
 M_.mapping.yf.eqidx = [22 23 32 ];
-M_.mapping.epsilon_b.eqidx = [1 3 19 21 33 ];
-M_.mapping.epsilon_q.eqidx = [2 13 20 27 34 ];
+M_.mapping.epsilon_b.eqidx = [1 3 19 21 34 ];
+M_.mapping.epsilon_q.eqidx = [2 13 20 27 37 ];
 M_.mapping.epsilon_g.eqidx = [4 22 35 ];
-M_.mapping.epsilon_a.eqidx = [5 7 23 24 36 ];
-M_.mapping.epsilon_p.eqidx = [6 37 ];
+M_.mapping.epsilon_a.eqidx = [5 7 23 24 33 ];
+M_.mapping.epsilon_p.eqidx = [6 36 ];
 M_.mapping.epsilon_s.eqidx = [9 25 39 ];
 M_.mapping.epsilon_w.eqidx = [8 10 40 ];
 M_.mapping.epsilon_r.eqidx = [17 38 ];
@@ -618,11 +626,11 @@ M_.mapping.u_obs.eqidx = [47 ];
 M_.mapping.r_obs.eqidx = [48 ];
 M_.mapping.r_year.eqidx = [49 ];
 M_.mapping.pi_year.eqidx = [50 ];
-M_.mapping.eta_b.eqidx = [33 ];
-M_.mapping.eta_q.eqidx = [34 ];
+M_.mapping.eta_b.eqidx = [34 ];
+M_.mapping.eta_q.eqidx = [37 ];
 M_.mapping.eta_g.eqidx = [35 ];
-M_.mapping.eta_a.eqidx = [35 36 ];
-M_.mapping.eta_p.eqidx = [37 ];
+M_.mapping.eta_a.eqidx = [33 35 ];
+M_.mapping.eta_p.eqidx = [36 ];
 M_.mapping.eta_s.eqidx = [39 ];
 M_.mapping.eta_w.eqidx = [40 ];
 M_.mapping.eta_r.eqidx = [38 ];
@@ -632,8 +640,8 @@ M_.block_structure.time_recursive = false;
 M_.block_structure.block(1).Simulation_Type = 1;
 M_.block_structure.block(1).endo_nbr = 10;
 M_.block_structure.block(1).mfs = 10;
-M_.block_structure.block(1).equation = [ 33 34 35 36 38 39 53 54 37 40];
-M_.block_structure.block(1).variable = [ 33 34 35 36 40 38 53 54 37 39];
+M_.block_structure.block(1).equation = [ 33 34 35 37 38 39 53 54 36 40];
+M_.block_structure.block(1).variable = [ 36 33 35 34 40 38 53 54 37 39];
 M_.block_structure.block(1).is_linear = true;
 M_.block_structure.block(1).NNZDerivatives = 20;
 M_.block_structure.block(1).bytecode_jacob_cols_to_sparse = [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 ];
@@ -717,8 +725,8 @@ M_.block_structure.block(7).g1_sparse_colptr = int32([]);
 M_.block_structure.block(8).g1_sparse_rowval = int32([1 1 1 ]);
 M_.block_structure.block(8).g1_sparse_colval = int32([1 2 3 ]);
 M_.block_structure.block(8).g1_sparse_colptr = int32([1 2 3 4 ]);
-M_.block_structure.variable_reordered = [ 33 34 35 36 40 38 53 54 37 39 16 32 25 28 21 26 27 29 31 22 20 23 24 7 11 8 10 14 9 13 18 2 19 15 12 1 4 3 6 5 48 49 51 52 44 50 47 46 45 43 42 41 17 30];
-M_.block_structure.equation_reordered = [ 33 34 35 36 38 39 53 54 37 40 10 23 29 25 19 28 30 26 27 20 22 21 24 4 7 14 16 9 5 12 13 17 32 18 8 1 2 6 15 3 48 49 51 52 44 50 47 46 45 43 42 41 11 31];
+M_.block_structure.variable_reordered = [ 36 33 35 34 40 38 53 54 37 39 16 32 25 28 21 26 27 29 31 22 20 23 24 7 11 8 10 14 9 13 18 2 19 15 12 1 4 3 6 5 48 49 51 52 44 50 47 46 45 43 42 41 17 30];
+M_.block_structure.equation_reordered = [ 33 34 35 37 38 39 53 54 36 40 10 23 29 25 19 28 30 26 27 20 22 21 24 4 7 14 16 9 5 12 13 17 32 18 8 1 2 6 15 3 48 49 51 52 44 50 47 46 45 43 42 41 11 31];
 M_.block_structure.incidence(1).lead_lag = -1;
 M_.block_structure.incidence(1).sparse_IM = [
  1 1;
@@ -740,12 +748,12 @@ M_.block_structure.incidence(1).sparse_IM = [
  27 31;
  28 31;
  31 30;
- 33 33;
- 34 34;
+ 33 36;
+ 34 33;
  35 35;
- 36 36;
- 37 37;
- 37 53;
+ 36 37;
+ 36 53;
+ 37 34;
  38 40;
  39 38;
  40 39;
@@ -865,11 +873,11 @@ M_.block_structure.incidence(2).sparse_IM = [
  32 7;
  32 19;
  32 32;
- 33 33;
- 34 34;
+ 33 36;
+ 34 33;
  35 35;
- 36 36;
- 37 37;
+ 36 37;
+ 37 34;
  38 40;
  39 38;
  40 39;
@@ -919,7 +927,7 @@ M_.block_structure.incidence(3).sparse_IM = [
  31 30;
 ];
 M_.block_structure.dyn_tmp_nbr = 0;
-M_.state_var = [33 34 35 36 40 38 53 54 37 39 29 31 22 20 7 13 18 2 19 15 12 1 4 3 51 52 30 ];
+M_.state_var = [36 33 35 34 40 38 53 54 37 39 29 31 22 20 7 13 18 2 19 15 12 1 4 3 51 52 30 ];
 M_.maximum_lag = 1;
 M_.maximum_lead = 1;
 M_.maximum_endo_lag = 1;
@@ -931,7 +939,7 @@ oo_.exo_steady_state = zeros(8, 1);
 M_.params = NaN(59, 1);
 M_.endo_trends = struct('deflator', cell(54, 1), 'log_deflator', cell(54, 1), 'growth_factor', cell(54, 1), 'log_growth_factor', cell(54, 1));
 M_.NNZDerivatives = [201; 0; -1; ];
-M_.dynamic_g1_sparse_rowval = int32([1 12 42 17 6 8 45 50 51 2 43 41 8 45 12 18 46 13 14 17 19 26 20 26 31 27 28 33 34 35 36 37 39 40 38 50 52 50 37 40 1 4 12 42 1 3 17 48 49 6 8 17 44 45 50 2 4 13 43 2 3 7 15 16 4 5 32 41 4 14 15 5 14 16 5 16 18 6 7 7 8 9 16 45 9 12 8 9 11 47 9 11 18 46 10 11 13 17 32 19 22 26 19 21 20 22 27 20 21 24 29 30 22 28 29 23 28 30 23 25 30 31 24 25 30 25 26 31 27 22 23 32 1 3 19 21 33 2 13 20 27 34 4 22 35 5 7 23 24 36 6 37 9 25 39 8 10 40 17 38 41 42 43 44 45 45 46 47 48 49 50 51 52 53 54 1 1 3 6 8 2 3 3 8 18 19 20 21 21 31 33 34 35 35 36 37 53 39 40 54 38 ]);
+M_.dynamic_g1_sparse_rowval = int32([1 12 42 17 6 8 45 50 51 2 43 41 8 45 12 18 46 13 14 17 19 26 20 26 31 27 28 34 37 35 33 36 39 40 38 50 52 50 36 40 1 4 12 42 1 3 17 48 49 6 8 17 44 45 50 2 4 13 43 2 3 7 15 16 4 5 32 41 4 14 15 5 14 16 5 16 18 6 7 7 8 9 16 45 9 12 8 9 11 47 9 11 18 46 10 11 13 17 32 19 22 26 19 21 20 22 27 20 21 24 29 30 22 28 29 23 28 30 23 25 30 31 24 25 30 25 26 31 27 22 23 32 1 3 19 21 34 2 13 20 27 37 4 22 35 5 7 23 24 33 6 36 9 25 39 8 10 40 17 38 41 42 43 44 45 45 46 47 48 49 50 51 52 53 54 1 1 3 6 8 2 3 3 8 18 19 20 21 21 31 34 37 35 33 35 36 53 39 40 54 38 ]);
 M_.dynamic_g1_sparse_colval = int32([1 1 1 2 3 3 3 3 3 4 4 7 12 12 13 15 15 18 18 19 20 20 22 29 30 31 31 33 34 35 36 37 38 39 40 51 51 52 53 54 55 55 55 55 56 56 56 56 56 57 57 57 57 57 57 58 58 58 58 59 59 60 60 60 61 61 61 61 62 62 62 63 63 63 64 64 64 65 65 66 66 66 66 66 67 67 68 68 68 68 69 69 69 69 70 71 72 73 73 74 74 74 75 75 76 76 76 77 77 78 78 78 79 79 79 80 80 80 81 81 81 81 82 82 82 83 83 84 85 86 86 86 87 87 87 87 87 88 88 88 88 88 89 89 89 90 90 90 90 90 91 91 92 92 92 93 93 93 94 94 95 96 97 98 98 99 100 101 102 103 104 105 106 107 108 109 111 111 111 111 112 113 114 120 123 128 130 131 132 138 163 164 165 166 166 167 167 168 169 169 170 ]);
 M_.dynamic_g1_sparse_colptr = int32([1 4 5 10 12 12 12 13 13 13 13 13 15 16 16 18 18 18 20 21 23 23 24 24 24 24 24 24 24 25 26 28 28 29 30 31 32 33 34 35 36 36 36 36 36 36 36 36 36 36 36 38 39 40 41 45 50 56 60 62 65 69 72 75 78 80 85 87 91 95 96 97 98 100 103 105 108 110 113 116 119 123 126 128 129 130 133 138 143 146 151 153 156 159 161 162 163 164 166 167 168 169 170 171 172 173 174 175 176 177 177 181 182 183 184 184 184 184 184 184 185 185 185 186 186 186 186 186 187 187 188 189 190 190 190 190 190 190 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 191 192 193 194 196 198 199 201 202 ]);
 M_.dynamic_g2_sparse_indices = int32([]);
@@ -968,11 +976,11 @@ M_.lhs = {
 'kf'; 
 'ef-ef(-1)'; 
 'ygap'; 
-'epsilon_b'; 
-'epsilon_q'; 
-'epsilon_g'; 
 'epsilon_a'; 
+'epsilon_b'; 
+'epsilon_g'; 
 'epsilon_p'; 
+'epsilon_q'; 
 'epsilon_r'; 
 'epsilon_s'; 
 'epsilon_w'; 
@@ -996,12 +1004,12 @@ M_.block_structure_stat.block(1).Simulation_Type = 3;
 M_.block_structure_stat.block(1).endo_nbr = 1;
 M_.block_structure_stat.block(1).mfs = 1;
 M_.block_structure_stat.block(1).equation = [ 33];
-M_.block_structure_stat.block(1).variable = [ 33];
+M_.block_structure_stat.block(1).variable = [ 36];
 M_.block_structure_stat.block(2).Simulation_Type = 3;
 M_.block_structure_stat.block(2).endo_nbr = 1;
 M_.block_structure_stat.block(2).mfs = 1;
 M_.block_structure_stat.block(2).equation = [ 34];
-M_.block_structure_stat.block(2).variable = [ 34];
+M_.block_structure_stat.block(2).variable = [ 33];
 M_.block_structure_stat.block(3).Simulation_Type = 3;
 M_.block_structure_stat.block(3).endo_nbr = 1;
 M_.block_structure_stat.block(3).mfs = 1;
@@ -1010,8 +1018,8 @@ M_.block_structure_stat.block(3).variable = [ 35];
 M_.block_structure_stat.block(4).Simulation_Type = 3;
 M_.block_structure_stat.block(4).endo_nbr = 1;
 M_.block_structure_stat.block(4).mfs = 1;
-M_.block_structure_stat.block(4).equation = [ 36];
-M_.block_structure_stat.block(4).variable = [ 36];
+M_.block_structure_stat.block(4).equation = [ 37];
+M_.block_structure_stat.block(4).variable = [ 34];
 M_.block_structure_stat.block(5).Simulation_Type = 3;
 M_.block_structure_stat.block(5).endo_nbr = 1;
 M_.block_structure_stat.block(5).mfs = 1;
@@ -1030,7 +1038,7 @@ M_.block_structure_stat.block(7).variable = [ 41 42 43 46 53 54];
 M_.block_structure_stat.block(8).Simulation_Type = 3;
 M_.block_structure_stat.block(8).endo_nbr = 1;
 M_.block_structure_stat.block(8).mfs = 1;
-M_.block_structure_stat.block(8).equation = [ 37];
+M_.block_structure_stat.block(8).equation = [ 36];
 M_.block_structure_stat.block(8).variable = [ 37];
 M_.block_structure_stat.block(9).Simulation_Type = 3;
 M_.block_structure_stat.block(9).endo_nbr = 1;
@@ -1050,8 +1058,8 @@ M_.block_structure_stat.block(11).variable = [ 21 23 24 32 27 28 29 20 22 31 25 
 M_.block_structure_stat.block(12).Simulation_Type = 6;
 M_.block_structure_stat.block(12).endo_nbr = 17;
 M_.block_structure_stat.block(12).mfs = 17;
-M_.block_structure_stat.block(12).equation = [ 16 17 18 12 32 1 2 3 4 13 5 6 14 7 8 9 15];
-M_.block_structure_stat.block(12).variable = [ 9 3 15 1 19 2 5 6 7 4 10 11 18 12 14 13 8];
+M_.block_structure_stat.block(12).equation = [ 16 17 18 12 32 1 2 3 13 4 5 6 14 7 8 9 15];
+M_.block_structure_stat.block(12).variable = [ 9 3 10 13 19 2 5 6 4 1 7 11 18 12 14 15 8];
 M_.block_structure_stat.block(13).Simulation_Type = 1;
 M_.block_structure_stat.block(13).endo_nbr = 8;
 M_.block_structure_stat.block(13).mfs = 8;
@@ -1067,8 +1075,8 @@ M_.block_structure_stat.block(15).endo_nbr = 1;
 M_.block_structure_stat.block(15).mfs = 1;
 M_.block_structure_stat.block(15).equation = [ 31];
 M_.block_structure_stat.block(15).variable = [ 30];
-M_.block_structure_stat.variable_reordered = [ 33 34 35 36 40 38 41 42 43 46 53 54 37 39 16 21 23 24 32 27 28 29 20 22 31 25 26 9 3 15 1 19 2 5 6 7 4 10 11 18 12 14 13 8 51 52 50 17 44 49 48 47 45 30];
-M_.block_structure_stat.equation_reordered = [ 33 34 35 36 38 39 41 42 43 46 53 54 37 40 10 19 20 21 22 23 24 25 26 27 28 29 30 16 17 18 12 32 1 2 3 4 13 5 6 14 7 8 9 15 51 52 50 11 44 49 48 47 45 31];
+M_.block_structure_stat.variable_reordered = [ 36 33 35 34 40 38 41 42 43 46 53 54 37 39 16 21 23 24 32 27 28 29 20 22 31 25 26 9 3 10 13 19 2 5 6 4 1 7 11 18 12 14 15 8 51 52 50 17 44 49 48 47 45 30];
+M_.block_structure_stat.equation_reordered = [ 33 34 35 37 38 39 41 42 43 46 53 54 36 40 10 19 20 21 22 23 24 25 26 27 28 29 30 16 17 18 12 32 1 2 3 13 4 5 6 14 7 8 9 15 51 52 50 11 44 49 48 47 45 31];
 M_.block_structure_stat.incidence.sparse_IM = [
  1 2;
  1 3;
@@ -1172,12 +1180,12 @@ M_.block_structure_stat.incidence.sparse_IM = [
  32 7;
  32 19;
  32 32;
- 33 33;
- 34 34;
+ 33 36;
+ 34 33;
  35 35;
- 36 36;
- 37 37;
- 37 53;
+ 36 37;
+ 36 53;
+ 37 34;
  38 40;
  39 38;
  40 39;
@@ -1241,9 +1249,9 @@ M_.block_structure_stat.block(10).g1_sparse_colptr = int32([1 2 ]);
 M_.block_structure_stat.block(11).g1_sparse_rowval = int32([1 3 2 3 3 6 11 12 4 5 5 7 12 6 7 12 7 8 4 8 4 9 9 10 4 10 11 5 10 12 ]);
 M_.block_structure_stat.block(11).g1_sparse_colval = int32([1 1 2 2 3 3 3 3 4 4 5 5 5 6 6 6 7 7 8 8 9 9 10 10 11 11 11 12 12 12 ]);
 M_.block_structure_stat.block(11).g1_sparse_colptr = int32([1 3 5 9 11 14 17 19 21 23 25 28 31 ]);
-M_.block_structure_stat.block(12).g1_sparse_rowval = int32([1 11 13 2 6 8 12 15 3 16 4 9 2 5 2 6 8 7 8 1 8 14 17 5 9 11 9 10 1 3 11 12 14 10 13 1 14 16 15 16 4 16 9 13 17 ]);
-M_.block_structure_stat.block(12).g1_sparse_colval = int32([1 1 1 2 2 2 2 2 3 3 4 4 5 5 6 6 6 7 7 8 8 8 8 9 9 9 10 10 11 11 11 12 12 13 13 14 14 14 15 15 16 16 17 17 17 ]);
-M_.block_structure_stat.block(12).g1_sparse_colptr = int32([1 4 9 11 13 15 18 20 24 27 29 32 34 36 39 41 43 46 ]);
+M_.block_structure_stat.block(12).g1_sparse_rowval = int32([1 11 13 2 6 8 12 15 1 3 11 4 16 2 5 2 6 8 7 8 1 8 14 17 9 10 4 10 5 10 11 12 14 9 13 1 14 16 15 16 3 16 10 13 17 ]);
+M_.block_structure_stat.block(12).g1_sparse_colval = int32([1 1 1 2 2 2 2 2 3 3 3 4 4 5 5 6 6 6 7 7 8 8 8 8 9 9 10 10 11 11 11 12 12 13 13 14 14 14 15 15 16 16 17 17 17 ]);
+M_.block_structure_stat.block(12).g1_sparse_colptr = int32([1 4 9 12 14 16 19 21 25 27 29 32 34 36 39 41 43 46 ]);
 M_.block_structure_stat.block(13).g1_sparse_rowval = int32([]);
 M_.block_structure_stat.block(13).g1_sparse_colval = int32([]);
 M_.block_structure_stat.block(13).g1_sparse_colptr = int32([]);
@@ -1253,7 +1261,7 @@ M_.block_structure_stat.block(14).g1_sparse_colptr = int32([1 2 ]);
 M_.block_structure_stat.block(15).g1_sparse_rowval = int32([1 ]);
 M_.block_structure_stat.block(15).g1_sparse_colval = int32([1 ]);
 M_.block_structure_stat.block(15).g1_sparse_colptr = int32([1 2 ]);
-M_.static_g1_sparse_rowval = int32([4 12 1 3 17 48 49 1 3 6 8 17 44 50 51 4 13 2 3 3 7 15 16 4 5 32 4 14 15 5 14 16 5 16 18 6 7 7 9 16 9 12 8 9 11 47 9 11 18 10 11 13 14 17 32 22 26 19 21 22 27 20 21 21 24 29 30 22 28 29 23 28 30 23 25 30 31 24 25 30 25 26 31 27 28 22 23 32 1 3 19 21 33 2 13 20 27 34 4 22 35 5 7 23 24 36 6 37 9 25 39 8 10 40 17 38 41 42 43 44 45 45 46 47 48 49 50 50 51 52 50 52 37 53 40 54 ]);
+M_.static_g1_sparse_rowval = int32([4 12 1 3 17 48 49 1 3 6 8 17 44 50 51 4 13 2 3 3 7 15 16 4 5 32 4 14 15 5 14 16 5 16 18 6 7 7 9 16 9 12 8 9 11 47 9 11 18 10 11 13 14 17 32 22 26 19 21 22 27 20 21 21 24 29 30 22 28 29 23 28 30 23 25 30 31 24 25 30 25 26 31 27 28 22 23 32 1 3 19 21 34 2 13 20 27 37 4 22 35 5 7 23 24 33 6 36 9 25 39 8 10 40 17 38 41 42 43 44 45 45 46 47 48 49 50 50 51 52 50 52 36 53 40 54 ]);
 M_.static_g1_sparse_colval = int32([1 1 2 2 2 2 2 3 3 3 3 3 3 3 3 4 4 5 5 6 6 6 6 7 7 7 8 8 8 9 9 9 10 10 10 11 11 12 12 12 13 13 14 14 14 14 15 15 15 16 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 24 24 25 25 25 26 26 26 27 27 27 27 28 28 28 29 29 30 31 31 32 32 32 33 33 33 33 33 34 34 34 34 34 35 35 35 36 36 36 36 36 37 37 38 38 38 39 39 39 40 40 41 42 43 44 44 45 46 47 48 49 50 51 51 51 52 52 53 53 54 54 ]);
 M_.static_g1_sparse_colptr = int32([1 3 8 16 18 20 24 27 30 33 36 38 41 43 47 50 51 52 54 56 58 60 62 64 68 71 74 78 81 83 84 86 89 94 99 102 107 109 112 115 117 118 119 120 122 123 124 125 126 127 128 131 133 135 137 ]);
 M_.params(5) = 0.025;
@@ -1388,6 +1396,104 @@ M_.Sigma_e(5, 5) = (0.379025)^2;
 M_.Sigma_e(6, 6) = (1.012299)^2;
 M_.Sigma_e(7, 7) = (0.354961)^2;
 M_.Sigma_e(8, 8) = (0.111101)^2;
+if isempty(estim_params_)
+    estim_params_.var_exo = zeros(0, 10);
+    estim_params_.var_endo = zeros(0, 10);
+    estim_params_.corrx = zeros(0, 11);
+    estim_params_.corrn = zeros(0, 11);
+    estim_params_.param_vals = zeros(0, 10);
+end
+if ~isempty(find(estim_params_.var_exo(:,1)==4))
+    error('The standard deviation for eta_a has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.var_exo = [estim_params_.var_exo; 4, 0.254028, 0.01, 3, 4, 0.1, 2, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.var_exo(:,1)==1))
+    error('The standard deviation for eta_b has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.var_exo = [estim_params_.var_exo; 1, 0.254028, 0.025, 5, 4, 0.1, 2, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.var_exo(:,1)==3))
+    error('The standard deviation for eta_g has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.var_exo = [estim_params_.var_exo; 3, 0.305013, 0.01, 3, 4, 0.1, 2, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.var_exo(:,1)==2))
+    error('The standard deviation for eta_q has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.var_exo = [estim_params_.var_exo; 2, 0.485825, 0.01, 3, 4, 0.1, 2, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.var_exo(:,1)==8))
+    error('The standard deviation for eta_r has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.var_exo = [estim_params_.var_exo; 8, 0.111101, 0.01, 3, 4, 0.1, 2, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.var_exo(:,1)==5))
+    error('The standard deviation for eta_p has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.var_exo = [estim_params_.var_exo; 5, 0.379025, 0.01, 3, 4, 0.1, 2, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.var_exo(:,1)==7))
+    error('The standard deviation for eta_w has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.var_exo = [estim_params_.var_exo; 7, 0.354961, 0.01, 3, 4, 0.1, 2, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.var_exo(:,1)==6))
+    error('The standard deviation for eta_s has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.var_exo = [estim_params_.var_exo; 6, 1.012299, 0.01, 5, 4, 0.1, 2, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==52))
+    error('Parameter c_rho_a has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 52, 0.982716, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==49))
+    error('Parameter c_rho_b has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 49, 0.915697, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==50))
+    error('Parameter c_rho_q has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 50, 0.345078, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==51))
+    error('Parameter c_rho_g has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 51, 0.992875, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==53))
+    error('Parameter c_rho_ga has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 53, 0.196454, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==54))
+    error('Parameter c_rho_p has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 54, 0.624064, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==57))
+    error('Parameter c_rho_w has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 57, 0.905390, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==59))
+    error('Parameter c_rho_r has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 59, 0.316487, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==55))
+    error('Parameter c_mu_p has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 55, 0.570707, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==58))
+    error('Parameter c_mu_w has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 58, 0.826670, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+options_.TeX = true;
+options_.datafile = 'SWW2014_data.mat';
+options_.first_obs = 1;
+options_.lik_init = 2;
+options_.mh_drop = 0.2;
+options_.mh_jscale = 0.20;
+options_.mh_nblck = 2;
+options_.mh_replic = 0;
+options_.mode_compute = 6;
+options_.nodiagnostic = true;
+options_.nograph = true;
+options_.optim_opt = '''MaxIter'',200';
+options_.prefilter = 0;
+options_.presample = 4;
+options_.order = 1;
+var_list_ = {};
+oo_recursive_=dynare_estimation(var_list_);
+var_list_ = {'dy_obs';'de_obs'};
+oo_ = shock_decomposition(M_,oo_,options_,var_list_,bayestopt_,estim_params_);
 options_.irf = 21;
 options_.order = 2;
 options_.periods = 1000;
