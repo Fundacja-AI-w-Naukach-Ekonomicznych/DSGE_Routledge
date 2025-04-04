@@ -1,40 +1,50 @@
-Starting Dynare (version 5.4).
+Starting Dynare (version 6.3).
 Calling Dynare with arguments: none
-Starting preprocessing of the model file ...
-Substitution of endo lags >= 2: added 2 auxiliary variables and equations.
-Substitution of exo lags: added 2 auxiliary variables and equations.
-Found 54 equation(s).
-Evaluating expressions...done
-Computing static model derivatives (order 1).
-Computing dynamic model derivatives (order 2).
-Processing outputs ...
-done
-Preprocessing completed.
-
+Starting preprocessing of the model file ... 
+Substitution of endo lags >= 2: added 2 auxiliary variables and equations. 
+Substitution of exo lags: added 2 auxiliary variables and equations. 
+Found 54 equation(s). 
+Evaluating expressions... 
+Computing static model derivatives (order 1). 
+Normalizing the static model... 
+Finding the optimal block decomposition of the static model... 
+15 block(s) found: 
+  13 recursive block(s) and 2 simultaneous block(s). 
+  the largest simultaneous block has 17 equation(s) 
+                                 and 17 feedback variable(s). 
+Computing dynamic model derivatives (order 2). 
+Normalizing the dynamic model... 
+Finding the optimal block decomposition of the dynamic model... 
+8 block(s) found: 
+  6 recursive block(s) and 2 simultaneous block(s). 
+  the largest simultaneous block has 17 equation(s) 
+                                 and 15 feedback variable(s). 
+Preprocessing completed. 
+Preprocessing time: 0h00m00s.
 
 STEADY-STATE RESULTS:
 
-c                		 1.012e-15
-r                		 -1.44329e-15
-pi               		 -1.28711e-15
-i                		 1.13153e-14
+c                		 0
+r                		 0
+pi               		 0
+i                		 0
 q                		 0
-rk               		 -5.40745e-15
-y                		 1.58244e-15
-v                		 -6.02938e-15
-k                		 5.28596e-15
-n                		 -1.77496e-16
-mc               		 -1.18305e-15
-w                		 5.60131e-17
-z                		 1.012e-15
+rk               		 0
+y                		 0
+v                		 0
+k                		 0
+n                		 0
+mc               		 0
+w                		 0
+z                		 0
 u                		 0
-e                		 -1.77496e-16
+e                		 0
 un               		 0
-l                		 -1.77496e-16
-kbar             		 1.13153e-14
-ygap             		 1.58244e-15
+l                		 0
+kbar             		 0
+ygap             		 0
 cf               		 0
-rf               		 -1.24117e-16
+rf               		 0
 invf             		 0
 qf               		 0
 rkf              		 0
@@ -46,11 +56,11 @@ zf               		 0
 ef               		 0
 kbarf            		 0
 yf               		 0
-epsilonb         		 -1.24117e-16
+epsilonb         		 0
 epsilonq         		 0
 epsilong         		 0
 epsilona         		 0
-epsilonp         		 -2.75612e-17
+epsilonp         		 0
 epsilons         		 0
 epsilonw         		 0
 epsilonr         		 0
@@ -62,12 +72,11 @@ dwobs            		 0.692218
 deobs            		 0.226367
 uobs             		 9.28777
 robs             		 3.85349
-ryear            		 -5.80692e-15
-piyear           		 -5.14845e-15
+ryear            		 0
+piyear           		 0
 
 EIGENVALUES:
          Modulus             Real        Imaginary
-
                0                0                0
                0                0                0
                0                0                0
@@ -108,10 +117,7 @@ EIGENVALUES:
        4.032e+16       -4.032e+16                0
        3.336e+17       -3.336e+17                0
 
-
-There are 12 eigenvalue(s) larger than 1 in modulus 
-for 12 forward-looking variable(s)
-
+There are 12 eigenvalue(s) larger than 1 in modulus for 12 forward-looking variable(s)
 The rank condition is verified.
 
 
@@ -153,8 +159,8 @@ epsilonw(-1)                0.555500        0.827891        0.678829       -0.18
 epsilonr(-1)                0.635772        0.020938       -1.174229        0.168357       -0.178029        0.635772
 pi(-2)                             0        1.000000               0               0               0               0
 pi(-3)                             0        1.000000               0               0               0               0
-etap(-1)                   -0.182761        0.691976        0.489795       -0.069283       -0.049180       -0.182761
-etaw(-1)                   -0.507202       -0.755909       -0.619807        0.166627       -0.648781       -0.507202
+etap(-2)                   -0.182761        0.691976        0.489795       -0.069283       -0.049180       -0.182761
+etaw(-2)                   -0.507202       -0.755909       -0.619807        0.166627       -0.648781       -0.507202
 c(-1)                       0.388759        0.000546        0.047020        0.038241       -0.035949        0.388759
 pi(-1)                     -0.063424        1.247821        0.175656       -0.019668        0.020186       -0.063424
 i(-1)                       0.169504       -0.002092        0.018778        0.020867       -0.019112        0.169504
@@ -213,4 +219,4 @@ u                    75.49              1.39              0.29              5.09
 ygap                 84.90              2.57              1.20             14.89              1.57              0.52              1.08             10.69            117.43
 Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
 
-Total computing time : 0h00m14s
+Total computing time : 0h00m08s
