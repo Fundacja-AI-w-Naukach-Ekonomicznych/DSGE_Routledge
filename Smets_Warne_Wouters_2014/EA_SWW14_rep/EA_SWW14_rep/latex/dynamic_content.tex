@@ -12,31 +12,31 @@
 \end{dmath}
 % Equation 4
 \begin{dmath}
-{{y}}_{t}={{c}}_{t}\, {ccy}+{{i}}_{t}\, {ciy}+{cvy}\, {{v}}_{t}+{{\varepsilon_g}}_{t}
+{{y}}_{t}={{c}}_{t}\, {{\frac{\bar{c}}{y}}}+{{i}}_{t}\, {{\frac{\bar{i}}{y}}}+{{\frac{\bar{v}}{y}}}\, {{v}}_{t}+{{\varepsilon_g}}_{t}
 \end{dmath}
 % Equation 5
 \begin{dmath}
-{{y}}_{t}={cpsip}\, \left({calpha}\, {{k}}_{t}+\left(1-{calpha}\right)\, {{n}}_{t}+{{\varepsilon_a}}_{t}\right)
+{{y}}_{t}={{\psi_p}}\, \left({{\alpha}}\, {{k}}_{t}+\left(1-{{\alpha}}\right)\, {{n}}_{t}+{{\varepsilon_a}}_{t}\right)
 \end{dmath}
 % Equation 6
 \begin{dmath}
-{{\pi}}_{t}-{cgammap}\, {{\pi}}_{t-1}={pi1}\, \left({{\pi}}_{t+1}-{{\pi}}_{t}\, {cgammap}\right)-{pi2}\, \left(100\, {{\varepsilon_p}}_{t}-{{mc}}_{t}\right)
+{{\pi}}_{t}-{{\gamma_p}}\, {{\pi}}_{t-1}={pi1}\, \left({{\pi}}_{t+1}-{{\pi}}_{t}\, {{\gamma_p}}\right)-{pi2}\, \left(100\, {{\varepsilon_p}}_{t}-{{mc}}_{t}\right)
 \end{dmath}
 % Equation 7
 \begin{dmath}
-{{mc}}_{t}=\left(1-{calpha}\right)\, {{w}}_{t}+{calpha}\, {{r^{k}}}_{t}-{{\varepsilon_a}}_{t}
+{{mc}}_{t}=\left(1-{{\alpha}}\right)\, {{w}}_{t}+{{\alpha}}\, {{r^{k}}}_{t}-{{\varepsilon_a}}_{t}
 \end{dmath}
 % Equation 8
 \begin{dmath}
-{{\pi}}_{t}+{{w}}_{t}-{{w}}_{t-1}={{\pi}}_{t-1}\, {cgammaw}+{cbeta}\, \left({{\pi}}_{t+1}+{{w}}_{t+1}-{{w}}_{t}-{{\pi}}_{t}\, {cgammaw}\right)-{w1}\, \left({comega}\, {{u}}_{t}-100\, {{\varepsilon_w}}_{t}\right)
+{{\pi}}_{t}+{{w}}_{t}-{{w}}_{t-1}={{\pi}}_{t-1}\, {{\gamma_w}}+{{\beta}}\, \left({{\pi}}_{t+1}+{{w}}_{t+1}-{{w}}_{t}-{{\pi}}_{t}\, {{\gamma_w}}\right)-{w1}\, \left({{\omega}}\, {{u}}_{t}-100\, {{\varepsilon_w}}_{t}\right)
 \end{dmath}
 % Equation 9
 \begin{dmath}
-{comega}\, {{u}}_{t}={{w}}_{t}-\left({{z}}_{t}+{{\varepsilon_s}}_{t}+{comega}\, {{e}}_{t}\right)
+{{\omega}}\, {{u}}_{t}={{w}}_{t}-\left({{z}}_{t}+{{\varepsilon_s}}_{t}+{{\omega}}\, {{e}}_{t}\right)
 \end{dmath}
 % Equation 10
 \begin{dmath}
-{comega}\, {{u^{n}}}_{t}=100\, {{\varepsilon_w}}_{t}
+{{\omega}}\, {{u^{n}}}_{t}=100\, {{\varepsilon_w}}_{t}
 \end{dmath}
 % Equation 11
 \begin{dmath}
@@ -44,7 +44,7 @@
 \end{dmath}
 % Equation 12
 \begin{dmath}
-{{z}}_{t}=\left(1-{cv}\right)\, {{z}}_{t-1}+\frac{{cv}}{1-\frac{{ch}}{{ctau}}}\, \left({{c}}_{t}-{{c}}_{t-1}\, \frac{{ch}}{{ctau}}\right)
+{{z}}_{t}=\left(1-{{v}}\right)\, {{z}}_{t-1}+\frac{{{v}}}{1-\frac{{{h}}}{{{\tau}}}}\, \left({{c}}_{t}-{{c}}_{t-1}\, \frac{{{h}}}{{{\tau}}}\right)
 \end{dmath}
 % Equation 13
 \begin{dmath}
@@ -56,7 +56,7 @@
 \end{dmath}
 % Equation 15
 \begin{dmath}
-{{v}}_{t}={{r^{k}}}_{t}\, \frac{1-{cpsi}}{{cpsi}}
+{{v}}_{t}={{r^{k}}}_{t}\, \frac{1-{{\psi}}}{{{\psi}}}
 \end{dmath}
 % Equation 16
 \begin{dmath}
@@ -64,139 +64,139 @@
 \end{dmath}
 % Equation 17
 \begin{dmath}
-{{r}}_{t}={crhointr}\, {{r}}_{t-1}+\left(1-{crhointr}\right)\, \left({{\pi}}_{t}\, {crpi}+{cry}\, {{y^{gap}}}_{t}+{crdy}\, \left({{y^{gap}}}_{t}-{{y^{gap}}}_{t-1}\right)\right)-{{\varepsilon_r}}_{t}
+{{r}}_{t}={{\rho_{i}}}\, {{r}}_{t-1}+\left(1-{{\rho_{i}}}\right)\, \left({{\pi}}_{t}\, {{r_{\pi}}}+{{r_{y}}}\, {{y^{gap}}}_{t}+{{r_{\Delta y}}}\, \left({{y^{gap}}}_{t}-{{y^{gap}}}_{t-1}\right)\right)-{{\varepsilon_r}}_{t}
 \end{dmath}
 % Equation 18
 \begin{dmath}
-{{e}}_{t}-{{e}}_{t-1}={cbeta}\, \left({{e}}_{t+1}-{{e}}_{t}\right)+{e1}\, \left({{n}}_{t}-{{e}}_{t}\right)
+{{e}}_{t}-{{e}}_{t-1}={{\beta}}\, \left({{e}}_{t+1}-{{e}}_{t}\right)+{e1}\, \left({{n}}_{t}-{{e}}_{t}\right)
 \end{dmath}
 % Equation 19
 \begin{dmath}
-{cf}_{t}={c1}\, {cf}_{t+1}+\left(1-{c1}\right)\, {cf}_{t-1}-{c2}\, \left({rf}_{t}-{{\varepsilon_b}}_{t}\right)
+{{c^{f}}}_{t}={c1}\, {{c^{f}}}_{t+1}+\left(1-{c1}\right)\, {{c^{f}}}_{t-1}-{c2}\, \left({{r^{f}}}_{t}-{{\varepsilon_b}}_{t}\right)
 \end{dmath}
 % Equation 20
 \begin{dmath}
-{invf}_{t}={{\varepsilon_q}}_{t}+{i1}\, {invf}_{t-1}+\left(1-{i1}\right)\, {invf}_{t+1}+{i2}\, {qf}_{t}
+{{i^{f}}}_{t}={{\varepsilon_q}}_{t}+{i1}\, {{i^{f}}}_{t-1}+\left(1-{i1}\right)\, {{i^{f}}}_{t+1}+{i2}\, {{q^{f}}}_{t}
 \end{dmath}
 % Equation 21
 \begin{dmath}
-{qf}_{t}={q1}\, {rkf}_{t+1}-\left({rf}_{t}-{{\varepsilon_b}}_{t}\right)+\left(1-{q1}\right)\, {qf}_{t+1}
+{{q^{f}}}_{t}={q1}\, {{r^{k,f}}}_{t+1}-\left({{r^{f}}}_{t}-{{\varepsilon_b}}_{t}\right)+\left(1-{q1}\right)\, {{q^{f}}}_{t+1}
 \end{dmath}
 % Equation 22
 \begin{dmath}
-{yf}_{t}={{\varepsilon_g}}_{t}+{ccy}\, {cf}_{t}+{ciy}\, {invf}_{t}+{cvy}\, {vf}_{t}
+{{y^{f}}}_{t}={{\varepsilon_g}}_{t}+{{\frac{\bar{c}}{y}}}\, {{c^{f}}}_{t}+{{\frac{\bar{i}}{y}}}\, {{i^{f}}}_{t}+{{\frac{\bar{v}}{y}}}\, {{v^{f}}}_{t}
 \end{dmath}
 % Equation 23
 \begin{dmath}
-{yf}_{t}={cpsip}\, \left({{\varepsilon_a}}_{t}+{calpha}\, {kf}_{t}+\left(1-{calpha}\right)\, {nf}_{t}\right)
+{{y^{f}}}_{t}={{\psi_p}}\, \left({{\varepsilon_a}}_{t}+{{\alpha}}\, {{k^{f}}}_{t}+\left(1-{{\alpha}}\right)\, {{n^{f}}}_{t}\right)
 \end{dmath}
 % Equation 24
 \begin{dmath}
-0=\left(1-{calpha}\right)\, {wf}_{t}+{calpha}\, {rkf}_{t}-{{\varepsilon_a}}_{t}
+0=\left(1-{{\alpha}}\right)\, {{w^{f}}}_{t}+{{\alpha}}\, {{r^{k,f}}}_{t}-{{\varepsilon_a}}_{t}
 \end{dmath}
 % Equation 25
 \begin{dmath}
-{wf}_{t}={{\varepsilon_s}}_{t}+{zf}_{t}+{comega}\, {nf}_{t}
+{{w^{f}}}_{t}={{\varepsilon_s}}_{t}+{{z^{f}}}_{t}+{{\omega}}\, {{n^{f}}}_{t}
 \end{dmath}
 % Equation 26
 \begin{dmath}
-{zf}_{t}=\left(1-{cv}\right)\, {zf}_{t-1}+\frac{{cv}}{1-\frac{{ch}}{{ctau}}}\, \left({cf}_{t}-\frac{{ch}}{{ctau}}\, {cf}_{t-1}\right)
+{{z^{f}}}_{t}=\left(1-{{v}}\right)\, {{z^{f}}}_{t-1}+\frac{{{v}}}{1-\frac{{{h}}}{{{\tau}}}}\, \left({{c^{f}}}_{t}-\frac{{{h}}}{{{\tau}}}\, {{c^{f}}}_{t-1}\right)
 \end{dmath}
 % Equation 27
 \begin{dmath}
-{kbarf}_{t}={{\varepsilon_q}}_{t}\, {k2}+{k1}\, {kbarf}_{t-1}+\left(1-{k1}\right)\, {invf}_{t}
+{{\bar{k}^{f}}}_{t}={{\varepsilon_q}}_{t}\, {k2}+{k1}\, {{\bar{k}^{f}}}_{t-1}+\left(1-{k1}\right)\, {{i^{f}}}_{t}
 \end{dmath}
 % Equation 28
 \begin{dmath}
-{kf}_{t}={vf}_{t}+{kbarf}_{t-1}
+{{k^{f}}}_{t}={{v^{f}}}_{t}+{{\bar{k}^{f}}}_{t-1}
 \end{dmath}
 % Equation 29
 \begin{dmath}
-{vf}_{t}=\frac{1-{cpsi}}{{cpsi}}\, {rkf}_{t}
+{{v^{f}}}_{t}=\frac{1-{{\psi}}}{{{\psi}}}\, {{r^{k,f}}}_{t}
 \end{dmath}
 % Equation 30
 \begin{dmath}
-{kf}_{t}={nf}_{t}+{wf}_{t}-{rkf}_{t}
+{{k^{f}}}_{t}={{n^{f}}}_{t}+{{w^{f}}}_{t}-{{r^{k,f}}}_{t}
 \end{dmath}
 % Equation 31
 \begin{dmath}
-{ef}_{t}-{ef}_{t-1}={cbeta}\, \left({ef}_{t+1}-{ef}_{t}\right)+{e1}\, \left({nf}_{t}-{ef}_{t}\right)
+{{e^{f}}}_{t}-{{e^{f}}}_{t-1}={{\beta}}\, \left({{e^{f}}}_{t+1}-{{e^{f}}}_{t}\right)+{e1}\, \left({{n^{f}}}_{t}-{{e^{f}}}_{t}\right)
 \end{dmath}
 % Equation 32
 \begin{dmath}
-{{y^{gap}}}_{t}={{y}}_{t}-{yf}_{t}
+{{y^{gap}}}_{t}={{y}}_{t}-{{y^{f}}}_{t}
 \end{dmath}
 % Equation 33
 \begin{dmath}
-{{\varepsilon_b}}_{t}={crhob}\, {{\varepsilon_b}}_{t-1}+{{\eta_b}}_{t}
+{{\varepsilon_b}}_{t}={{\rho_b}}\, {{\varepsilon_b}}_{t-1}+{{\eta_b}}_{t}
 \end{dmath}
 % Equation 34
 \begin{dmath}
-{{\varepsilon_q}}_{t}={crhoq}\, {{\varepsilon_q}}_{t-1}+{{\eta_q}}_{t}
+{{\varepsilon_q}}_{t}={{\rho_q}}\, {{\varepsilon_q}}_{t-1}+{{\eta_q}}_{t}
 \end{dmath}
 % Equation 35
 \begin{dmath}
-{{\varepsilon_g}}_{t}={crhog}\, {{\varepsilon_g}}_{t-1}+{{\eta_g}}_{t}+{crhoga}\, {{\eta_a}}_{t}
+{{\varepsilon_g}}_{t}={{\rho_g}}\, {{\varepsilon_g}}_{t-1}+{{\eta_g}}_{t}+{{\rho_{ga}}}\, {{\eta_a}}_{t}
 \end{dmath}
 % Equation 36
 \begin{dmath}
-{{\varepsilon_a}}_{t}={{\eta_a}}_{t}+{crhoa}\, {{\varepsilon_a}}_{t-1}
+{{\varepsilon_a}}_{t}={{\eta_a}}_{t}+{{\rho_a}}\, {{\varepsilon_a}}_{t-1}
 \end{dmath}
 % Equation 37
 \begin{dmath}
-{{\varepsilon_p}}_{t}={crhop}\, {{\varepsilon_p}}_{t-1}+{{\eta_p}}_{t}-{cmup}\, {AUX\_EXO\_LAG\_54\_0}_{t-1}
+{{\varepsilon_p}}_{t}={{\rho_p}}\, {{\varepsilon_p}}_{t-1}+{{\eta_p}}_{t}-{{\mu_p}}\, {AUX\_EXO\_LAG\_54\_0}_{t-1}
 \end{dmath}
 % Equation 38
 \begin{dmath}
-{{\varepsilon_r}}_{t}={crhor}\, {{\varepsilon_r}}_{t-1}+{{\eta_r}}_{t}
+{{\varepsilon_r}}_{t}={{\rho_r}}\, {{\varepsilon_r}}_{t-1}+{{\eta_r}}_{t}
 \end{dmath}
 % Equation 39
 \begin{dmath}
-{{\varepsilon_s}}_{t}={crhos}\, {{\varepsilon_s}}_{t-1}+{{\eta_s}}_{t}
+{{\varepsilon_s}}_{t}={{\rho_s}}\, {{\varepsilon_s}}_{t-1}+{{\eta_s}}_{t}
 \end{dmath}
 % Equation 40
 \begin{dmath}
-{{\varepsilon_w}}_{t}={crhow}\, {{\varepsilon_w}}_{t-1}+{{\eta_w}}_{t}-{cmuw}\, {AUX\_EXO\_LAG\_56\_0}_{t-1}
+{{\varepsilon_w}}_{t}={{\rho_w}}\, {{\varepsilon_w}}_{t-1}+{{\eta_w}}_{t}-{{\mu_w}}\, {AUX\_EXO\_LAG\_56\_0}_{t-1}
 \end{dmath}
 % Equation 41
 \begin{dmath}
-{dyobs}_{t}={{y}}_{t}+{ctaubar}+{cebar}-{{y}}_{t-1}
+{{dy^{obs}}}_{t}={{y}}_{t}+{{\bar{\tau}}}+{{\bar{e}}}-{{y}}_{t-1}
 \end{dmath}
 % Equation 42
 \begin{dmath}
-{dcobs}_{t}={{c}}_{t}+{ctaubar}+{cebar}-{{c}}_{t-1}
+{{dc^{obs}}}_{t}={{c}}_{t}+{{\bar{\tau}}}+{{\bar{e}}}-{{c}}_{t-1}
 \end{dmath}
 % Equation 43
 \begin{dmath}
-{diobs}_{t}={{i}}_{t}+{ctaubar}+{cebar}-{{i}}_{t-1}
+{{di^{obs}}}_{t}={{i}}_{t}+{{\bar{\tau}}}+{{\bar{e}}}-{{i}}_{t-1}
 \end{dmath}
 % Equation 44
 \begin{dmath}
-{piobs}_{t}={{\pi}}_{t}+{cpibar}
+{{\pi^{obs}}}_{t}={{\pi}}_{t}+{{\bar{\pi}}}
 \end{dmath}
 % Equation 45
 \begin{dmath}
-{dwobs}_{t}-{piobs}_{t}={{w}}_{t}+{ctaubar}-{{w}}_{t-1}-\left({{\pi}}_{t}-{{\pi}}_{t-1}\right)
+{{dw^{obs}}}_{t}-{{\pi^{obs}}}_{t}={{w}}_{t}+{{\bar{\tau}}}-{{w}}_{t-1}-\left({{\pi}}_{t}-{{\pi}}_{t-1}\right)
 \end{dmath}
 % Equation 46
 \begin{dmath}
-{deobs}_{t}={{e}}_{t}+{cebar}-{{e}}_{t-1}
+{{de^{obs}}}_{t}={{e}}_{t}+{{\bar{e}}}-{{e}}_{t-1}
 \end{dmath}
 % Equation 47
 \begin{dmath}
-{uobs}_{t}={{u}}_{t}+{cubar}
+{{u^{obs}}}_{t}={{u}}_{t}+{{\bar{u}}}
 \end{dmath}
 % Equation 48
 \begin{dmath}
-{robs}_{t}=4\, {crbar}+{{r}}_{t}\, 4
+{{r^{obs}}}_{t}=4\, {{\bar{r}}}+{{r}}_{t}\, 4
 \end{dmath}
 % Equation 49
 \begin{dmath}
-{ryear}_{t}={{r}}_{t}\, 4
+{{r^{ann}}}_{t}={{r}}_{t}\, 4
 \end{dmath}
 % Equation 50
 \begin{dmath}
-{piyear}_{t}={{\pi}}_{t}+{{\pi}}_{t-1}+{AUX\_ENDO\_LAG\_2\_1}_{t-1}+{AUX\_ENDO\_LAG\_2\_2}_{t-1}
+{{\pi^{ann}}}_{t}={{\pi}}_{t}+{{\pi}}_{t-1}+{AUX\_ENDO\_LAG\_2\_1}_{t-1}+{AUX\_ENDO\_LAG\_2\_2}_{t-1}
 \end{dmath}
 % Equation 51
 \begin{dmath}

@@ -20,19 +20,19 @@ var
         ygap        ${y^{gap}}$   (long_name='Output gap')
 
      // flex variables
-        cf          ${c^{f}}$            (long_name = 'Consumption (flex prices)')
-        rf          ${r^{f}}$            (long_name = 'Nominal interest rate (flex prices)')
-        invf        ${i^{f}}$            (long_name = 'Investment (flex prices)')
-        qf          ${q^{f}}$            (long_name = 'Value of capital stock (flex prices)')
-        rkf         ${r^{k,f}}$          (long_name = 'Return on capital (flex prices)')
-        vf          ${v^{f}}$            (long_name = 'Capital utilization (flex prices)')
-        kf          ${k^{f}}$            (long_name = 'Capital used in production (flex prices)')
-        nf          ${n^{f}}$            (long_name = 'Hours worked (flex prices)')
-        wf          ${w^{f}}$            (long_name = 'Real wage (flex prices)')
-        zf          ${z^{f}}$            (long_name = 'Smoothed trend of consumption (flex prices)')
-        ef          ${e^{f}}$            (long_name = 'Employment (flex prices)')
-        kbarf       ${\bar{k}^{f}}$      (long_name = 'Capital stock (flex prices)')
-        yf          ${y^{f}}$            (long_name = 'Output (flex prices)')
+        cf       ${c^{f}}$            (long_name = "Consumption (flex prices)")
+        rf       ${r^{f}}$            (long_name = "Nominal interest rate (flex prices)")
+        invf     ${i^{f}}$            (long_name = "Investment (flex prices)")
+        qf       ${q^{f}}$            (long_name = "Value of capital stock (flex prices)")
+        rkf      ${r^{k,f}}$          (long_name = "Return on capital (flex prices)")
+        vf       ${v^{f}}$            (long_name = "Capital utilization (flex prices)")
+        kf       ${k^{f}}$            (long_name = "Capital used in production (flex prices)")
+        nf       ${n^{f}}$            (long_name = "Hours worked (flex prices)")
+        wf       ${w^{f}}$            (long_name = "Real wage (flex prices)")
+        zf       ${z^{f}}$            (long_name = "Smoothed trend of consumption (flex prices)")
+        ef       ${e^{f}}$            (long_name = "Employment (flex prices)")
+        kbarf    ${\bar{k}^{f}}$      (long_name = "Capital stock (flex prices)")
+        yf       ${y^{f}}$            (long_name = "Output (flex prices)")
 
      // shocks
         epsilonb    ${\varepsilon_b}$     (long_name='Risk premium shock')
@@ -45,18 +45,19 @@ var
         epsilonr    ${\varepsilon_r}$     (long_name='Monetary policy shock')
 
      // measurement equations
-        dyobs   ${dy^{obs}}$            (long_name = 'Output growth (observed)')
-        dcobs   ${dc^{obs}}$            (long_name = 'Consumption growth (observed)')
-        diobs   ${di^{obs}}$            (long_name = 'Investment growth (observed)')
-        piobs   ${\pi^{obs}}$           (long_name = 'Inflation (observed)')
-        dwobs   ${dw^{obs}}$            (long_name = 'Real wage growth (observed)')
-        deobs   ${de^{obs}}$            (long_name = 'Employment growth (observed)')
-        uobs    ${u^{obs}}$             (long_name = 'Unemployment rate (observed)')
-        robs    ${r^{obs}}$             (long_name = 'Interest rate (observed)')
+        dyobs   ${dy^{obs}}$            (long_name = "Output growth (observed)")
+        dcobs   ${dc^{obs}}$            (long_name = "Consumption growth (observed)")
+        diobs   ${di^{obs}}$            (long_name = "Investment growth (observed)")
+        piobs   ${\pi^{obs}}$           (long_name = "Inflation (observed)")
+        dwobs   ${dw^{obs}}$            (long_name = "Real wage growth (observed)")
+        deobs   ${de^{obs}}$            (long_name = "Employment growth (observed)")
+        uobs    ${u^{obs}}$             (long_name = "Unemployment rate (observed)")
+        robs    ${r^{obs}}$             (long_name = "Interest rate (observed)")
+
 
      // annualized rates
-        ryear    ${r^{ann}}$            (long_name = 'Nominal interest rate (annualized)')
-        piyear   ${\pi^{ann}}$          (long_name = 'Inflation rate (annualized)')
+        ryear    // ${r^{ann}}$       Nominal interest rate (annualized)
+        piyear   // ${\pi^{ann}}$     Inflation rate (annualized)
 ;
 
 varexo  
@@ -71,43 +72,45 @@ varexo
 ;
 
 parameters 
-        ch          ${h}$                   (long_name = 'Habit parameter')
-        ctau        ${\tau}$                (long_name = 'Trend growth rate')
-        cbeta       ${\beta}$               (long_name = 'Discount factor')
-        cphi        ${\phi}$                (long_name = 'Elasticity of the capital adjustment cost function')
-        cdelta      ${\delta}$              (long_name = 'Depreciation of capital')
-        cpsip       ${\psi_p}$              (long_name = 'Reflects fixed costs in production')
-        calpha      ${\alpha}$              (long_name = 'Cobb-Douglas parameter')
-        cgammap     ${\gamma_p}$            (long_name = 'Price indexation')
-        cthetap     ${\theta_p}$            (long_name = 'Probability of price change')
-        cepsp       ${\varepsilon_p}$       (long_name = 'Curvature of the price aggregator function')
-        cgammaw     ${\gamma_w}$            (long_name = 'Wage indexation')
-        cthetaw     ${\theta_w}$            (long_name = 'Probability of wage change')
-        cepsw       ${\varepsilon_w}$       (long_name = 'Curvature of the wage aggregator function')
-        comega      ${\omega}$              (long_name = 'Inverse elasticity of labor supply')
-        cv          ${v}$                   (long_name = 'Captures short run wealth effect on labor supply')
-        cpsi        ${\psi}$                (long_name = 'Elasticity of the capital utilization cost function')
-        crhointr    ${\rho_{i}}$            (long_name = 'Persistence of monetary policy rule')
-        crpi        ${r_{\pi}}$             (long_name = 'Coefficient on inflation')
-        cry         ${r_{y}}$               (long_name = 'Coefficient on output gap')
-        crdy        ${r_{\Delta y}}$        (long_name = 'Coefficient on change in output gap')
-        cthetae     ${\theta_e}$            (long_name = 'Fraction of firms able to adjust employment')
+        ch          // habit parameter
+        ctau        // trend growth rate
+        cbeta       // discount factor
+        cphi        // elasticity of the capital adjustment cost function
+        cdelta      // depreciation of capital
+        cpsip       // reflects fixed costs in production
+        calpha      // Cobb-Douglas parameter
+        cgammap     // price indexation
+        cthetap     // probability of price change
+        cepsp       // curvature of the aggregator function
+        cgammaw     // wage indexation
+        cthetaw     // probability of wage change
+        cepsw       // curvature of the aggregator function
+        comega      // inverse elasticity of labor supply
+        cv          // captures short run wealth effect on labor supply
+        cpsi        // elasticity of the capital utilization cost function
+        crhointr    // persistence of MP rule
+        crpi        // coefficient on inflation
+        cry         // coeff on output gap
+        crdy        // coeff on change in output gap
+        cthetae     // fraction of firms able to adjust employment
 
      // steady state (SS) parameters
-        crk        ${c_{rk}}$              (long_name = 'Steady state return on capital')
-        ccy        ${\frac{\bar{c}}{y}}$   (long_name = 'Steady state consumption-output ratio')
-        ciy        ${\frac{\bar{i}}{y}}$   (long_name = 'Steady state investment-output ratio')
-        cvy        ${\frac{\bar{v}}{y}}$   (long_name = 'Steady state capital utilization-output ratio')
-        cgy        ${\frac{\bar{g}}{y}}$   (long_name = 'Steady state government spending-output ratio')
-        cky        ${\frac{\bar{k}}{y}}$   (long_name = 'Steady state capital-output ratio')
-        ctaubar    ${\bar{\tau}}$          (long_name = 'Steady state average tax rate')
-        cpi        ${c_{\pi}}$             (long_name = 'Steady state inflation rate')
-        cpibar     ${\bar{\pi}}$           (long_name = 'Target inflation (steady state)')
-        crbar      ${\bar{r}}$             (long_name = 'Steady state nominal interest rate')
-        cubar      ${\bar{u}}$             (long_name = 'Steady state unemployment rate')
-        cebar      ${\bar{e}}$             (long_name = 'Steady state employment')
-        cbetabar   ${\bar{\beta}}}$        (long_name = 'Steady state discount factor')
-        cpsiw      ${\psi^w}$              (long_name = 'Steady state labor market markup parameter')
+        crk        // ${c_{rk}}$            Steady state return on capital
+        ccy        // ${c_{cy}}$            Steady state consumption-output ratio
+        ciy        // ${c_{iy}}$            Steady state investment-output ratio
+        cvy        // ${c_{vy}}$            Steady state capital utilization-output ratio
+        cgy        // ${c_{gy}}$            Steady state government spending-output ratio
+        cky        // ${c_{ky}}$            Steady state capital-output ratio
+        ctaubar    // ${c_{\bar{\tau}}}$    Steady state average tax rate
+        cpi        // ${c_{\pi}}$           Steady state inflation rate
+        cpibar     // ${c_{\bar{\pi}}}$     Target inflation (steady state)
+        crbar      // ${c_{\bar{r}}}$       Steady state nominal interest rate
+        cubar      // ${c_{\bar{u}}}$       Steady state unemployment rate
+        cebar      // ${c_{\bar{e}}}$       Steady state employment
+        cbetabar   // ${c_{\bar{\beta}}}$   Steady state discount factor
+
+
+        cpsiw     // ${c_{\psi^w}}$       Steady state labor market markup parameter (psiw−1)
 
      // new defined parameters for SS
         clk       // ${c_{lk}}$           Steady state labor-capital ratio
@@ -127,17 +130,18 @@ parameters
         e1        // ${e_1}$              Employment helper 1
 
      // shocks
-        crhob     ${\rho_b}$              (long_name = 'Persistence of risk premium shock')
-        crhoq     ${\rho_q}$              (long_name = 'Persistence of investment-specific shock')
-        crhog     ${\rho_g}$              (long_name = 'Persistence of government spending shock')
-        crhoa     ${\rho_a}$              (long_name = 'Persistence of productivity shock')
-        crhoga    ${\rho_{ga}}$           (long_name = 'Persistence of growth of productivity')
-        crhop     ${\rho_p}$              (long_name = 'Persistence of price markup shock')
-        cmup      ${\mu_p}$               (long_name = 'Steady state price markup')
-        crhos     ${\rho_s}$              (long_name = 'Persistence of labor supply shock')
-        crhow     ${\rho_w}$              (long_name = 'Persistence of wage markup shock')
-        cmuw      ${\mu_w}$               (long_name = 'Steady state wage markup')
-        crhor     ${\rho_r}$              (long_name = 'Persistence of monetary policy shock')
+        crhob     // ${\rho_b}$           Persistence of risk premium shock
+        crhoq     // ${\rho_q}$           Persistence of investment-specific shock
+        crhog     // ${\rho_g}$           Persistence of government spending shock
+        crhoa     // ${\rho_a}$           Persistence of productivity shock
+        crhoga    // ${\rho_{ga}}$        Persistence of growth of productivity
+        crhop     // ${\rho_p}$           Persistence of price markup shock
+        cmup      // ${\mu_p}$            Steady state price markup
+        crhos     // ${\rho_s}$           Persistence of labor supply shock
+        crhow     // ${\rho_w}$           Persistence of wage markup shock
+        cmuw      // ${\mu_w}$            Steady state wage markup
+        crhor     // ${\rho_r}$           Persistence of monetary policy shock
+
 ;
 
 // parameter declaration 
