@@ -20,7 +20,7 @@ Finding the optimal block decomposition of the dynamic model...
   the largest simultaneous block has 17 equation(s) 
                                  and 15 feedback variable(s). 
 Preprocessing completed. 
-Preprocessing time: 0h00m00s.
+Preprocessing time: 0h00m01s.
 
 STEADY-STATE RESULTS:
 
@@ -79,11 +79,11 @@ EIGENVALUES:
          Modulus             Real        Imaginary
                0                0                0
                0                0                0
-       1.094e-17       -1.094e-17                0
-       2.488e-17       -2.488e-17                0
-        4.24e-17        -4.24e-17                0
-         6.3e-17          6.3e-17                0
-       7.141e-17       -7.141e-17                0
+       1.867e-17       -1.867e-17                0
+        3.88e-17        -3.88e-17                0
+       6.176e-17        6.176e-17                0
+       7.758e-17        7.758e-17                0
+       1.885e-16        1.885e-16                0
           0.2504           0.2504                0
           0.3165           0.3165                0
           0.3451           0.3451                0
@@ -113,17 +113,53 @@ EIGENVALUES:
            1.356            1.356                0
            1.418            1.418                0
            1.421            1.421                0
-       6.162e+15       -6.162e+15                0
-       4.041e+16       -4.041e+16                0
-             Inf              Inf                0
+         4.6e+16         -4.6e+16                0
+       3.811e+17        3.811e+17                0
+             Inf             -Inf                0
 
 There are 12 eigenvalue(s) larger than 1 in modulus for 12 forward-looking variable(s)
 The rank condition is verified.
 
 
 You did not declare endogenous variables after the estimation/calib_smoother command.
+Initial value of the log posterior (or likelihood): -10025.4264
+[Warning: gmhmaxlik: Unknown option (MaxIter)!] 
+[> In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('gmhmaxlik', 'C:\dynare\6.3\matlab\optimization\gmhmaxlik.m', 59)" style="font-weight:bold">gmhmaxlik</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\optimization\gmhmaxlik.m',59,0)">line 59</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('dynare_minimize_objective', 'C:\dynare\6.3\matlab\optimization\dynare_minimize_objective.m', 345)" style="font-weight:bold">dynare_minimize_objective</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\optimization\dynare_minimize_objective.m',345,0)">line 345</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('dynare_estimation_1', 'C:\dynare\6.3\matlab\estimation\dynare_estimation_1.m', 244)" style="font-weight:bold">dynare_estimation_1</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\estimation\dynare_estimation_1.m',244,0)">line 244</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('dynare_estimation', 'C:\dynare\6.3\matlab\estimation\dynare_estimation.m', 105)" style="font-weight:bold">dynare_estimation</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\estimation\dynare_estimation.m',105,0)">line 105</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('EA_SWW14_rep.driver', 'C:\Users\MierzejM\Documents\GitHub\DSGE_Routledge\Smets_Warne_Wouters_2014\EA_SWW14_rep\+EA_SWW14_rep\driver.m', 1494)" style="font-weight:bold">EA_SWW14_rep.driver</a> (<a href="matlab: opentoline('C:\Users\MierzejM\Documents\GitHub\DSGE_Routledge\Smets_Warne_Wouters_2014\EA_SWW14_rep\+EA_SWW14_rep\driver.m',1494,0)">line 1494</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('dynare', 'C:\dynare\6.3\matlab\dynare.m', 308)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\dynare.m',308,0)">line 308</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('run', 'C:\Users\MierzejM\Documents\GitHub\DSGE_Routledge\Smets_Warne_Wouters_2014\run.m', 5)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Users\MierzejM\Documents\GitHub\DSGE_Routledge\Smets_Warne_Wouters_2014\run.m',5,0)">line 5</a>)] 
 
-Initial value of the log posterior (or likelihood): -804.2244
+==========================================================
+   Change in the posterior covariance matrix = 3.9992.
+   Change in the posterior mean = 4.3454.
+   Current mode = 809.9183
+   Mode improvement = 9215.5081
+   New value of jscale = 0.01819
+==========================================================
+
+==========================================================
+   Change in the posterior covariance matrix = 0.055704.
+   Change in the posterior mean = 0.22585.
+   Current mode = 805.7289
+   Mode improvement = 4.1894
+   New value of jscale = 0.25732
+==========================================================
+
+==========================================================
+   Change in the posterior covariance matrix = 0.030627.
+   Change in the posterior mean = 0.052209.
+   Current mode = 804.2244
+   Mode improvement = 1.5045
+   New value of jscale = 0.2997
+==========================================================
+
+Optimal value of the scale parameter = 0.2997
+
+
+Final value of minus the log posterior (or likelihood):804.224400 
 
 RESULTS FROM POSTERIOR ESTIMATION
 parameters
@@ -154,7 +190,6 @@ eta_s        0.1000   5.0000  0.1633   invg 2.0000
 
 
 Log data density [Laplace approximation] is -834.936504.
-
 
 
 MODEL SUMMARY
@@ -214,27 +249,28 @@ eta_r                      12.303405       10.822998
 
 MOMENTS OF SIMULATED VARIABLES
 VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
-y                 3.460738       18.092673      327.344833       -0.175453       -0.563350
-c                 3.243298       17.197554      295.755875       -0.372468       -0.591050
+y                14.974288       20.725809      429.559152        0.110775       -0.555194
+c                20.049832       15.370684      236.257927       -0.174417       -0.637450
 
 
 CORRELATION OF SIMULATED VARIABLES
 VARIABLE         y       c
-y           1.0000  0.8543
-c           0.8543  1.0000
+y           1.0000  0.8487
+c           0.8487  1.0000
 
 
 AUTOCORRELATION OF SIMULATED VARIABLES
 VARIABLE         1       2       3       4       5
-y           0.9777  0.9392  0.8934  0.8448  0.7965
-c           0.9787  0.9479  0.9154  0.8850  0.8574
+y           0.9802  0.9445  0.8987  0.8462  0.7917
+c           0.9727  0.9329  0.8910  0.8485  0.8100
 
 
 
 VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent)
                 eta_b             eta_q             eta_g             eta_a             eta_p             eta_s             eta_w             eta_r  Tot. lin. contr.
-y                1.82              2.88              0.32             20.87              1.87             50.54              0.48             58.74            137.51
-c                3.07              2.79              1.18             11.81              0.44            104.89              0.98             38.71            163.86
+y                1.19              2.18              0.25             12.23              2.00             19.72              0.38             69.74            107.69
+c                3.34              3.96              2.22             11.81              0.69             65.33              1.61             63.88            152.85
 Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
 
-Total computing time : 0h00m04s
+Total computing time : 0h08m06s
+Note: warning(s) encountered in MATLAB/Octave code
