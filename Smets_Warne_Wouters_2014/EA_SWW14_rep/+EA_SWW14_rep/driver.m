@@ -1475,6 +1475,82 @@ if ~isempty(find(estim_params_.param_vals(:,1)==58))
     error('Parameter c_mu_w has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
 end
 estim_params_.param_vals = [estim_params_.param_vals; 58, 0.826670, .01, .9999, 1, 0.5, 0.20, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==7))
+    error('Parameter c_alpha has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 7, 0.24, 0.01, 1.0, 3, 0.3, 0.05, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==34))
+    error('Parameter c_beta_bar has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 34, 0.7420, 0.01, 2.0, 2, 0.25, 0.1, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==33))
+    error('Parameter c_e_bar has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 33, 1.2918, (-10.0), 10.0, 3, 0.0, 2.0, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==11))
+    error('Parameter c_gamma_w has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 11, 0.4425, 0.01, 0.99, 1, 0.5, 0.15, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==8))
+    error('Parameter c_gamma_p has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 8, 0.3291, 0.01, 0.99, 1, 0.5, 0.15, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==1))
+    error('Parameter c_h has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 1, 0.7205, 0.001, 0.99, 1, 0.7, 0.1, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==6))
+    error('Parameter c_psi_p has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 6, 1.4672, 1.0, 3, 3, 1.25, 0.125, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==30))
+    error('Parameter c_pi_bar has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 30, 0.7, 0.1, 2.0, 2, 0.625, 0.1, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==4))
+    error('Parameter c_phi has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 4, 6.3325, 2, 15, 3, 4, 1.5, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==16))
+    error('Parameter c_psi has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 16, 0.2648, 0.01, 1, 1, 0.5, 0.15, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==17))
+    error('Parameter c_rho_intr has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 17, 0.8258, 0.5, 0.975, 1, 0.75, 0.10, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==18))
+    error('Parameter c_rpi has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 18, 1.7985, 1.0, 3, 3, 1.5, 0.25, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==20))
+    error('Parameter c_rdy has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 20, 0.2239, 0.001, 0.5, 3, 0.125, 0.05, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==19))
+    error('Parameter c_ry has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 19, 0.0893, 0.001, 0.5, 3, 0.125, 0.05, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==14))
+    error('Parameter c_omega has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 14, 2.8401, 0.25, 10, 3, 2, 0.75, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==28))
+    error('Parameter c_tau_bar has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 28, 0.3982, 0.1, 0.8, 3, 0.4, 0.10, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==9))
+    error('Parameter c_theta_p has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 9, 0.7813, 0.5, 0.95, 1, 0.5, 0.10, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==12))
+    error('Parameter c_theta_w has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 12, 0.7937, 0.3, 0.95, 1, 0.5, 0.1, NaN, NaN, NaN ];
+if ~isempty(find(estim_params_.param_vals(:,1)==15))
+    error('Parameter c_v has been specified twice in two concatenated ''estimated_params'' blocks. Depending on your intention, you may want to use the ''overwrite'' option or an ''estimated_params_remove'' block.')
+end
+estim_params_.param_vals = [estim_params_.param_vals; 15, 1.2312, 0.25, 3, 3, 1.50, 0.375, NaN, NaN, NaN ];
 options_.TeX = true;
 options_.datafile = 'SWW2014_data.mat';
 options_.first_obs = 1;
@@ -1493,12 +1569,12 @@ options_.presample = 4;
 options_.order = 1;
 var_list_ = {};
 oo_recursive_=dynare_estimation(var_list_);
-var_list_ = {'dy_obs';'de_obs'};
+var_list_ = {'dy_obs';'pi_obs'};
 oo_ = shock_decomposition(M_,oo_,options_,var_list_,bayestopt_,estim_params_);
 options_.irf = 21;
 options_.order = 2;
 options_.periods = 1000;
-var_list_ = {'y';'c'};
+var_list_ = {'pi'};
 [info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
 
 
