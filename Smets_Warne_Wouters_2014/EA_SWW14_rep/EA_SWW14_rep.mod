@@ -1,4 +1,4 @@
-@#define reestimate_flag = 1
+@#define reestimate_flag = 0
 
 var     
         c           ${c}$         (long_name='Consumption')
@@ -263,12 +263,12 @@ model(linear);
     epsilon_w = c_rho_w * epsilon_w(-1) + eta_w - c_mu_w * eta_w(-1);
     
     // measurement equations
-    dy_obs = c_tau_bar+c_e_bar+y-y(-1);
-    dc_obs = c_tau_bar+c_e_bar+c-c(-1);
-    di_obs = c_tau_bar+c_e_bar+i-i(-1);
+    dy_obs = c_tau_bar + c_e_bar+y-y(-1);
+    dc_obs = c_tau_bar + c_e_bar+c-c(-1);
+    di_obs = c_tau_bar + c_e_bar+i-i(-1);
     pi_obs = c_pi_bar+pi;
-    dw_obs - pi_obs=c_tau_bar+w-w(-1)-(pi-pi(-1));
-    de_obs = c_e_bar+e-e(-1);
+    dw_obs - pi_obs= c_tau_bar + w - w(-1) -(pi-pi(-1));
+    de_obs = c_e_bar + e - e(-1);
     u_obs = c_u_bar + u;
     r_obs = 4 * c_r_bar + 4 * r;
     
@@ -303,19 +303,19 @@ varobs
     r_obs;
 
 estimated_params;
-  stderr eta_a,  0.254028,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
-  stderr eta_b,  0.254028,   0.025, 5,  INV_GAMMA_PDF,  0.1,2;
-  stderr eta_g,  0.305013,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
-  stderr eta_q,  0.485825,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
-  stderr eta_r,  0.111101,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
-  stderr eta_p,  0.379025,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
-  stderr eta_w,  0.354961,   0.01,  3,  INV_GAMMA_PDF,  0.1,2;
-  stderr eta_s,  1.012299,   0.01,  5,  INV_GAMMA_PDF,  0.1,2;
+  stderr eta_a,  0.254028,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
+  stderr eta_b,  0.254028,   0.025, 5,  INV_GAMMA_PDF,  0.1,    2;
+  stderr eta_g,  0.305013,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
+  stderr eta_q,  0.485825,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
+  stderr eta_r,  0.111101,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
+  stderr eta_p,  0.379025,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
+  stderr eta_w,  0.354961,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
+  stderr eta_s,  1.012299,   0.01,  5,  INV_GAMMA_PDF,  0.1,    2;
 
   //ARMA Components
   c_rho_a,    0.982716,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
   c_rho_b,    0.915697,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
-  c_rho_q,    0.345078,   .01,  .9999,  BETA_PDF,   0.5,    0.20; //rhoi
+  c_rho_q,    0.345078,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
   c_rho_g,    0.992875,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
   c_rho_ga,   0.196454,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
   c_rho_p,    0.624064,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
@@ -324,25 +324,27 @@ estimated_params;
   c_mu_p,     0.570707,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
   c_mu_w,     0.826670,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
 
-  //cphi,6.3325,2,15,NORMAL_PDF,4,1.5; //csadjcost -> cphi
-  //csigma,1.2312,0.25,3,NORMAL_PDF,1.50,0.375;
-  //ch,0.7205,0.001,0.99,BETA_PDF,0.7,0.1; //chabb -> ch
-  //cthetaw,0.7937,0.3,0.95,BETA_PDF,0.5,0.1; //cprobw -> cthetaw
-  //csigl,2.8401,0.25,10,NORMAL_PDF,2,0.75; //csigl -> comega
-  //cthetap,0.7813,0.5,0.95,BETA_PDF,0.5,0.10; //cprobp -> cthetap
-  //cgammaw,0.4425,0.01,0.99,BETA_PDF,0.5,0.15; //cindw -> cgammaw
-  //cgammap,0.3291,0.01,0.99,BETA_PDF,0.5,0.15; //cindp -> cgammap
-  //cpsi,0.2648,0.01,1,BETA_PDF,0.5,0.15; //czcap -> cpsi
-  //cpsip,1.4672,1.0,3,NORMAL_PDF,1.25,0.125; //cfc -> cpsip
-  //crpi,1.7985,1.0,3,NORMAL_PDF,1.5,0.25; //ok
-  //crr,0.8258,0.5,0.975,BETA_PDF,0.75,0.10; //crr -> crhointr
-  //cry,0.0893,0.001,0.5,NORMAL_PDF,0.125,0.05;
-  //crdy,0.2239,0.001,0.5,NORMAL_PDF,0.125,0.05;
-  //cpibar,0.7,0.1,2.0,GAMMA_PDF,0.625,0.1;//20; //constepinf -> cpibar
-  //cbetabar,0.7420,0.01,2.0,GAMMA_PDF,0.25,0.1;//0.20; //constebeta -> cbetabar
-  //constelab,1.2918,-10.0,10.0,NORMAL_PDF,0.0,2.0;
-  //ctau,0.3982,0.1,0.8,NORMAL_PDF,0.4,0.10; //ctrend -> ctau
-  //calpha,0.24,0.01,1.0,NORMAL_PDF,0.3,0.05; //calfa -> calpha
+  //STRUCTURAL PARAMETERS
+  c_alpha,       0.24,       0.01,  1.0,    NORMAL_PDF,   0.3,     0.05;
+  c_beta_bar,    0.7420,     0.01,  2.0,    GAMMA_PDF,    0.25,    0.1;
+  c_e_bar,       1.2918,    -10.0,  10.0,   NORMAL_PDF,   0.0,     2.0;
+  c_gamma_w,     0.4425,     0.01,  0.99,   BETA_PDF,     0.5,     0.15;
+  c_gamma_p,     0.3291,     0.01,  0.99,   BETA_PDF,     0.5,     0.15;
+  c_h,           0.7205,     0.001, 0.99,   BETA_PDF,     0.7,     0.1;
+  c_psi_p,       1.4672,     1.0,   3,      NORMAL_PDF,   1.25,    0.125;
+  c_pi_bar,      0.7,        0.1,   2.0,    GAMMA_PDF,    0.625,   0.1;
+  c_phi,         6.3325,     2,     15,     NORMAL_PDF,   4,       1.5;
+  c_psi,         0.2648,     0.01,  1,      BETA_PDF,     0.5,     0.15;
+  c_rho_intr,    0.8258,     0.5,   0.975,  BETA_PDF,     0.75,    0.10;
+  c_rpi,         1.7985,     1.0,   3,      NORMAL_PDF,   1.5,     0.25;
+  c_rdy,         0.2239,     0.001, 0.5,    NORMAL_PDF,   0.125,   0.05;
+  c_ry,          0.0893,     0.001, 0.5,    NORMAL_PDF,   0.125,   0.05;
+  c_omega,       2.8401,     0.25,  10,     NORMAL_PDF,   2,       0.75;
+  c_tau_bar,     0.3982,     0.1,   0.8,    NORMAL_PDF,   0.4,     0.10;
+  c_theta_p,     0.7813,     0.5,   0.95,   BETA_PDF,     0.5,     0.10;
+  c_theta_w,     0.7937,     0.3,   0.95,   BETA_PDF,     0.5,     0.1;
+  c_v,           1.2312,     0.25,  3,      NORMAL_PDF,   1.50,    0.375;
+
 end;
 
 @#if reestimate_flag == 1 
@@ -362,7 +364,7 @@ end;
                nodiagnostic, tex);
 @#endif
 
-shock_decomposition dy_obs de_obs;
-stoch_simul(periods = 1000, irf = 21) y c;
+shock_decomposition dy_obs pi_obs;
+stoch_simul(periods = 1000, irf = 21) pi;
 
 write_latex_dynamic_model;
