@@ -235,19 +235,41 @@ model(linear);
     [name='Eq (1b).: Consumption Euler Equation - Flexible prices']
     cf = c1 *cf(+1) + (1-c1) * cf(-1) - c2 * (rf-epsilon_b);
 
-    invf=i1*invf(-1)+(1-i1)*invf(+1)+i2*qf+epsilon_q;
-    qf=-(rf-epsilon_b)+q1*rkf(+1)+(1-q1)*qf(+1);
-    yf=c_cy*cf+c_iy*invf+c_vy*vf+epsilon_g;
-    yf=c_psi_p*(c_alpha*kf+(1-c_alpha)*nf+epsilon_a);
-    0=(1-c_alpha)*wf+c_alpha*rkf-epsilon_a;
-    //c_omega*un= wf-(zf+epsilon_s+c_omega*ef); // flex version of sticky equation
-    wf=zf+epsilon_s+c_omega*nf; // flex version used by authors' in code
-    zf=(1-c_v)*zf(-1)+c_v/(1-c_h/c_tau)*(cf-c_h/c_tau*cf(-1));
-    kbarf=k1*kbarf(-1)+(1-k1)*invf+k2*epsilon_q;
-    kf=vf+kbarf(-1);
-    vf=(1-c_psi)/c_psi*rkf;
-    kf=wf-rkf+nf;
-    ef-ef(-1)=c_beta*(ef(+1)-ef)+e1*(nf-ef);
+    [name='Eq (2b).: Investment Euler Equation']
+    invf = i1 * invf(-1) + (1-i1) * invf(+1) + i2 * qf + epsilon_q;
+
+    [name='Eq (3b).: Value of Capital Stock']
+    qf = -(rf - epsilon_b) + q1 * rkf(+1) + (1-q1)*qf(+1);
+
+    [name='Eq (4b).: Aggregate Resource Constraint']   
+    yf = c_cy * cf + c_iy * invf + c_vy * vf + epsilon_g;
+
+    [name='Eq (5b).: Cobb-Douglas Production Function']   
+    yf = c_psi_p*(c_alpha * kf + (1 - c_alpha) * nf + epsilon_a);
+
+    [name='Eq (7b).: Marginal Cost']
+    0=(1 - c_alpha)*wf + c_alpha*rkf - epsilon_a;
+    
+    [name='Eq (8b).: Wage Setting']  
+    wf=zf + epsilon_s + c_omega * nf; 
+
+    [name='Eq (12b).: Smoothed Trend of Consumption']
+    zf = (1-c_v)* zf(-1) + c_v/(1-c_h/c_tau) * (cf-c_h/c_tau*cf(-1));
+    
+    [name='Eq (13b).: Capital Stock']
+    kbarf = k1 * kbarf(-1) + (1-k1) * invf + k2*epsilon_q;
+
+    [name='Eq (14b).: Capital Services Production']   
+    kf = vf + kbarf(-1);
+
+    [name='Eq (15b).: Optimal Capital Utilization']    
+    vf = (1-c_psi)/c_psi * rkf;
+
+    [name='Eq (16b).: Optimal Capital-Labor Condition']   
+    kf = wf - rkf + nf;
+
+    [name='Eq (18b).: Employment/Technology']    
+    ef - ef(-1) = c_beta*(ef(+1) - ef) + e1*(nf-ef);
     
     // output gap
     ygap=y-yf;
