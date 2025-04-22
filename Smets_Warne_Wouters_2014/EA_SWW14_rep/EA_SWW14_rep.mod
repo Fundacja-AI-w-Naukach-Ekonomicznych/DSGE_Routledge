@@ -1,5 +1,4 @@
-@#define reestimate_flag = 0
-@#define philips_curve_flag = 0
+@#define reestimate_flag = 1
 
 var     
         c           ${c}$         (long_name='Consumption')
@@ -21,12 +20,6 @@ var
         l           ${l}$         (long_name='Labor force')
         kbar        ${\bar{k}}$   (long_name='Capital stock')
         ygap        ${y^{gap}}$   (long_name='Output gap')
-
-   @#if philips_curve_flag == 1 
-        pi_core     ${\pi_core}$   (long_name='Inflation rate - core inflation')
-        pi_energy   ${\pi_energy}$ (long_name='Inflation rate - energy prices')
-        pi_food     ${\pi_fodd}$   (long_name='Inflation rate - food prices')
-   @#endif
 
      // flex variables
         cf          ${c^{f}}$            (long_name = 'Consumption (flex prices)')
@@ -53,27 +46,15 @@ var
         epsilon_w    ${\varepsilon_w}$     (long_name='Wage markup shock')
         epsilon_r    ${\varepsilon_r}$     (long_name='Monetary policy shock')
 
-   @#if philips_curve_flag == 1 
-        epsilon_p_energy    ${\varepsilon_p^{energy}}$     (long_name='Price shock - Energy')
-        epsilon_p_energy    ${\varepsilon_p}$              (long_name='Price shock - Food')
-   @#endif
-
      // measurement equations
         dy_obs   ${\Delta y^{obs}}$            (long_name = 'Output growth (observed)')
         dc_obs   ${\Delta c^{obs}}$            (long_name = 'Consumption growth (observed)')
         di_obs   ${\Delta i^{obs}}$            (long_name = 'Investment growth (observed)')
+        pi_obs   ${\pi^{obs}}$                 (long_name = 'Inflation (observed)')
         dw_obs   ${\Delta w^{obs}}$            (long_name = 'Real wage growth (observed)')
         de_obs   ${\Delta e^{obs}}$            (long_name = 'Employment growth (observed)')
         u_obs    ${u^{obs}}$                   (long_name = 'Unemployment rate (observed)')
         r_obs    ${r^{obs}}$                   (long_name = 'Interest rate (observed)')
-
-   @#if philips_curve_flag == 1 
-        pi_core_obs   ${\pi^{obs}_core}$       (long_name = 'Core Inflation (observed)')
-        pi_energy_obs ${\pi^{obs}_energy}$     (long_name = 'Energy Inflation (observed)')
-        pi_food_obs   ${\pi^{obs}_food}$       (long_name = 'Food Inflation (observed)')
-   @#else     
-        pi_obs   ${\pi^{obs}}$                 (long_name = 'Inflation (observed)')
-   @#endif
 
      // annualized rates
         r_year    ${r^{ann}}$            (long_name = 'Nominal interest rate (annualized)')
@@ -89,11 +70,6 @@ varexo
         eta_s        ${\eta_s}$         (long_name='Labor supply shock')
         eta_w        ${\eta_w}$         (long_name='Wage markup shock')
         eta_r        ${\eta_r}$         (long_name='Monetary policy shock')
-
-   @#if philips_curve_flag == 1 
-        eta_p_energy ${\eta_p^{energy}}$  (long_name='Price shock - Energy')
-        eta_p_food   ${\eta_p^{food}}$    (long_name='Price shock - Food')
-   @#endif
 ;
 
 parameters 
@@ -135,11 +111,6 @@ parameters
         c_beta_bar   ${\bar{\beta}}}$        (long_name = 'Steady state discount factor')
         c_psi_w      ${\psi^w}$              (long_name = 'Steady state labor market markup parameter')
 
-   @#if philips_curve_flag == 1 
-        c_w_energy         ${w_{energy}}$   (long_name = 'Steady state weight - energy in CPI basket')
-        c_w_food           ${w_{food}}$     (long_name = 'Steady state weight - food in CPI basket')
-   @#endif
-
      // new defined parameters for SS
         c_lk       // ${c_{lk}}$           Steady state labor-capital ratio
         c_w        // ${c_{w}}$            Steady state real wage
@@ -169,11 +140,6 @@ parameters
         c_rho_w     ${\rho_w}$              (long_name = 'Persistence of wage markup shock')
         c_mu_w      ${\mu_w}$               (long_name = 'Steady state wage markup')
         c_rho_r     ${\rho_r}$              (long_name = 'Persistence of monetary policy shock')
-
-   @#if philips_curve_flag == 1 
-        c_rho_p_energy     ${\rho_p^{energy}}$  (long_name = 'Persistence of price energy shock')
-        c_rho_p_food       ${\rho_p^{food}}$    (long_name = 'Persistence of price food   shock')
-   @#endif
 ;
 
 // parameter declaration 
@@ -225,27 +191,9 @@ model(linear);
     
     [name='Eq (5).: Cobb-Douglas Production Function']
     y = c_psi_p*(c_alpha*k + (1 - c_alpha)*n + epsilon_a);
-
-   @#if philips_curve_flag == 1 
-   
-        [name='Eq (6).: Calvo Pricing - aggregation']
-        pi = c_w_energy * pi_energy + c_w_food * pi_food + (1 - c_w_energy - c_w_food)*pi_core
-
-        [name='Eq (6a).: Calvo Pricing - Core inflation']
-        pi_core - c_gamma_p * pi_core(-1) = pi1*(pi_core(+1) - c_gamma_p * pi_core) - pi2*(-mc + 100*epsilon_p);
-
-        [name='Eq (6b).: Calvo Pricing - Food inflation']
-        pi_food - c_gamma_p * pi_food(-1) = pi1*(pi_food(+1) - c_gamma_p * pi_food) - pi2*(-mc + 100*epsilon_p + 100*epsilon_p_food);
-
-        [name='Eq (6c).: Calvo Pricing - Energy inflation']
-        pi_energy - c_gamma_p * pi_energy(-1) = pi1*(pi_energy(+1) - c_gamma_p * pi_energy) - pi2*(-mc + 100*epsilon_p + 100*epsilon_p_energy);
- 
-   @#else     
-   
-        [name='Eq (6).: Calvo Pricing']
-        pi - c_gamma_p*pi(-1) = pi1*(pi(+1) - c_gamma_p*pi) - pi2*(-mc + 100*epsilon_p);
-   
-   @#endif
+    
+    [name='Eq (6).: Calvo Pricing']
+    pi - c_gamma_p*pi(-1) = pi1*(pi(+1) - c_gamma_p*pi) - pi2*(-mc + 100*epsilon_p);
     
     [name='Eq (7).: Marginal Cost']
     mc = (1 - c_alpha)*w + c_alpha*rk - epsilon_a;
@@ -335,25 +283,12 @@ model(linear);
     epsilon_r = c_rho_r * epsilon_r(-1) + eta_r;
     epsilon_s = c_rho_s * epsilon_s(-1) + eta_s;
     epsilon_w = c_rho_w * epsilon_w(-1) + eta_w - c_mu_w * eta_w(-1);
-
-   @#if philips_curve_flag == 1 
-    epsilon_p_energy = c_rho_p_energy * epsilon_p_energy(-1) + eta_p - c_mu_p * eta_p(-1) + eta_p_energy;
-    epsilon_p_food   = c_rho_p_food   * epsilon_p_food(-1) + eta_p - c_mu_p * eta_p(-1) + eta_p_food;
-   @#endif
     
     // measurement equations
     dy_obs = c_tau_bar + c_e_bar+y-y(-1);
     dc_obs = c_tau_bar + c_e_bar+c-c(-1);
     di_obs = c_tau_bar + c_e_bar+i-i(-1);
-
-  @#if philips_curve_flag == 1 
-    pi_core_obs = c_pi_bar+pi_core;
-    pi_energy_obs = c_pi_bar+pi_energy;
-    pi_food_obs = c_pi_bar+pi_food;
-  @#else
     pi_obs = c_pi_bar+pi;
-  @#endif
-
     dw_obs - pi_obs= c_tau_bar + w - w(-1) -(pi-pi(-1));
     de_obs = c_e_bar + e - e(-1);
     u_obs = c_u_bar + u;
@@ -377,26 +312,13 @@ shocks;
     var eta_p; stderr 0.379025;
     var eta_w; stderr 0.354961;
     var eta_s; stderr 1.012299;
-
-   @#if philips_curve_flag == 1 
-    var eta_p_energy; stderr 0.379025;
-    var eta_p_food;   stderr 0.379025;
-   @#endif
 end;
 
 varobs 
     dy_obs 
     dc_obs 
     di_obs 
-
-  @#if philips_curve_flag == 1 
-    pi_core_obs
-    pi_energy_obs
-    pi_food_obs
-  @#else
     pi_obs 
-  @#endif
-
     dw_obs 
     de_obs 
     u_obs 
@@ -411,11 +333,6 @@ estimated_params;
   stderr eta_p,  0.379025,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
   stderr eta_w,  0.354961,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
   stderr eta_s,  1.012299,   0.01,  5,  INV_GAMMA_PDF,  0.1,    2;
-  
-  @#if philips_curve_flag == 1 
-    stderr eta_p_energy,  0.379025,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
-    stderr eta_p_food,    0.379025,   0.01,  3,  INV_GAMMA_PDF,  0.1,    2;
-  @#endif
 
   //ARMA Components
   c_rho_a,    0.982716,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
@@ -428,11 +345,6 @@ estimated_params;
   c_rho_r,    0.316487,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
   c_mu_p,     0.570707,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
   c_mu_w,     0.826670,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
-
-  @#if philips_curve_flag == 1 
-    c_rho_p_energy,  0.624064,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
-    c_rho_p_food,    0.624064,   .01,  .9999,  BETA_PDF,   0.5,    0.20;
-  @#endif
 
   //STRUCTURAL PARAMETERS
   c_alpha,       0.24,       0.01,  1.0,    NORMAL_PDF,   0.3,     0.05;

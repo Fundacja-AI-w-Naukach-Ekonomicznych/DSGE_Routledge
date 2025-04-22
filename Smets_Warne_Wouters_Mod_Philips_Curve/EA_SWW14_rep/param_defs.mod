@@ -22,6 +22,8 @@
 @# define c_rho_ga = 0.196454
 @# define c_rho_intr = 0.856383
 @# define c_rho_p = 0.624064
+@# define c_rho_p_energy = 0.624064
+@# define c_rho_p_food = 0.624064
 @# define c_rho_q = 0.345078
 @# define c_rho_r = 0.316487
 @# define c_rho_s = 0.999000
@@ -33,6 +35,8 @@
 @# define c_theta_p = 0.842802
 @# define c_theta_w = 0.696311
 @# define c_v = 0.085281
+@# define c_w_energy = 0.110000
+@# define c_w_food = 0.210000
 
 c_alpha = @{c_alpha};
 c_beta_bar = @{c_beta_bar};
@@ -58,6 +62,8 @@ c_rho_g = @{c_rho_g};
 c_rho_ga = @{c_rho_ga};
 c_rho_intr = @{c_rho_intr};
 c_rho_p = @{c_rho_p};
+c_rho_p_energy = @{c_rho_p_energy};
+c_rho_p_food = @{c_rho_p_food};
 c_rho_q = @{c_rho_q};
 c_rho_r = @{c_rho_r};
 c_rho_s = @{c_rho_s};
@@ -69,3 +75,5 @@ c_theta_e = @{c_theta_e};
 c_theta_p = @{c_theta_p};
 c_theta_w = @{c_theta_w};
 c_v = @{c_v};
+c_w_energy = @{c_w_energy};
+c_w_food = @{c_w_food};
