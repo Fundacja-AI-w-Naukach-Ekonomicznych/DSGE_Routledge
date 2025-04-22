@@ -1,0 +1,320 @@
+Starting Dynare (version 6.3).
+Calling Dynare with arguments: noclearall
+Starting preprocessing of the model file ... 
+Substitution of endo lags >= 2: added 2 auxiliary variables and equations. 
+Substitution of exo lags: added 2 auxiliary variables and equations. 
+Found 62 equation(s). 
+Evaluating expressions... 
+Computing static model derivatives (order 1). 
+Normalizing the static model... 
+Finding the optimal block decomposition of the static model... 
+18 block(s) found: 
+  16 recursive block(s) and 2 simultaneous block(s). 
+  the largest simultaneous block has 20 equation(s) 
+                                 and 20 feedback variable(s). 
+Computing dynamic model derivatives (order 2). 
+Normalizing the dynamic model... 
+Finding the optimal block decomposition of the dynamic model... 
+9 block(s) found: 
+  7 recursive block(s) and 2 simultaneous block(s). 
+  the largest simultaneous block has 20 equation(s) 
+                                 and 18 feedback variable(s). 
+Preprocessing completed. 
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c                		 0
+r                		 0
+pi               		 0
+i                		 0
+q                		 0
+rk               		 0
+y                		 0
+v                		 0
+k                		 0
+n                		 0
+mc               		 0
+w                		 0
+z                		 0
+u                		 0
+e                		 0
+un               		 0
+l                		 0
+kbar             		 0
+ygap             		 0
+pi_core          		 0
+pi_energy        		 0
+pi_food          		 0
+cf               		 0
+rf               		 0
+invf             		 0
+qf               		 0
+rkf              		 0
+vf               		 0
+kf               		 0
+nf               		 0
+wf               		 0
+zf               		 0
+ef               		 0
+kbarf            		 0
+yf               		 0
+epsilon_b        		 0
+epsilon_q        		 0
+epsilon_g        		 0
+epsilon_a        		 0
+epsilon_p        		 0
+epsilon_s        		 0
+epsilon_w        		 0
+epsilon_r        		 0
+epsilon_p_energy 		 0
+epsilon_p_food   		 0
+dy_obs           		 0.357215
+dc_obs           		 0.357215
+di_obs           		 0.357215
+dw_obs           		 0.692218
+de_obs           		 0.226367
+u_obs            		 9.28777
+r_obs            		 3.85349
+pi_obs           		 0.56137
+pi_core_obs      		 0.56137
+pi_energy_obs    		 0.56137
+pi_food_obs      		 0.56137
+r_year           		 0
+pi_year          		 0
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+               0                0                0
+               0                0                0
+       1.658e-17        1.658e-17                0
+       1.812e-17        1.812e-17                0
+       3.738e-17       -3.738e-17                0
+        4.18e-17         4.18e-17                0
+        6.01e-17         6.01e-17                0
+       1.886e-16        1.886e-16                0
+          0.2504           0.2504                0
+          0.2504           0.2504                0
+          0.2504           0.2504                0
+          0.3165           0.3165                0
+          0.3451           0.3451                0
+          0.6241           0.6241                0
+          0.6241           0.6241                0
+          0.6241           0.6241                0
+          0.6868           0.6862          0.02973
+          0.6868           0.6862         -0.02973
+          0.7056           0.7056                0
+          0.8005           0.8005                0
+          0.8184           0.8146          0.07918
+          0.8184           0.8146         -0.07918
+           0.832            0.832                0
+          0.9054           0.9054                0
+          0.9157           0.9157                0
+          0.9178           0.9178                0
+          0.9244           0.9244                0
+          0.9588           0.9588                0
+          0.9659           0.9659                0
+          0.9827           0.9827                0
+          0.9929           0.9929                0
+           0.999            0.999                0
+           1.003            1.003                0
+           1.003            1.003                0
+           1.013            1.013                0
+           1.037            1.037                0
+           1.041            1.041                0
+           1.135            1.135                0
+           1.135            1.125           0.1459
+           1.135            1.125          -0.1459
+           1.356            1.356                0
+           1.418            1.418                0
+           1.421            1.421                0
+       9.319e+15        9.319e+15                0
+       7.601e+16        7.601e+16                0
+             Inf              Inf                0
+             Inf              Inf                0
+
+There are 15 eigenvalue(s) larger than 1 in modulus for 15 forward-looking variable(s)
+The rank condition is verified.
+
+
+You did not declare endogenous variables after the estimation/calib_smoother command.
+Initial value of the log posterior (or likelihood): -13593.086
+[Warning: gmhmaxlik: Unknown option (MaxIter)!] 
+[> In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('gmhmaxlik', 'C:\dynare\6.3\matlab\optimization\gmhmaxlik.m', 59)" style="font-weight:bold">gmhmaxlik</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\optimization\gmhmaxlik.m',59,0)">line 59</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('dynare_minimize_objective', 'C:\dynare\6.3\matlab\optimization\dynare_minimize_objective.m', 345)" style="font-weight:bold">dynare_minimize_objective</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\optimization\dynare_minimize_objective.m',345,0)">line 345</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('dynare_estimation_1', 'C:\dynare\6.3\matlab\estimation\dynare_estimation_1.m', 244)" style="font-weight:bold">dynare_estimation_1</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\estimation\dynare_estimation_1.m',244,0)">line 244</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('dynare_estimation', 'C:\dynare\6.3\matlab\estimation\dynare_estimation.m', 105)" style="font-weight:bold">dynare_estimation</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\estimation\dynare_estimation.m',105,0)">line 105</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('EA_SWW14_rep.driver', 'D:\Github\DSGE_Routledge\Smets_Warne_Wouters_Mod_Philips_Curve\EA_SWW14_rep\+EA_SWW14_rep\driver.m', 1763)" style="font-weight:bold">EA_SWW14_rep.driver</a> (<a href="matlab: opentoline('D:\Github\DSGE_Routledge\Smets_Warne_Wouters_Mod_Philips_Curve\EA_SWW14_rep\+EA_SWW14_rep\driver.m',1763,0)">line 1763</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('dynare', 'C:\dynare\6.3\matlab\dynare.m', 308)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\6.3\matlab\dynare.m',308,0)">line 308</a>)
+In <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('run', 'D:\Github\DSGE_Routledge\Smets_Warne_Wouters_Mod_Philips_Curve\run.m', 5)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('D:\Github\DSGE_Routledge\Smets_Warne_Wouters_Mod_Philips_Curve\run.m',5,0)">line 5</a>)] 
+
+==========================================================
+   Change in the posterior covariance matrix = 3.9998.
+   Change in the posterior mean = 2.4772.
+   Current mode = 899.6529
+   Mode improvement = 12693.433
+   New value of jscale = 0.007564
+==========================================================
+
+==========================================================
+   Change in the posterior covariance matrix = 0.18454.
+   Change in the posterior mean = 1.0744.
+   Current mode = 881.3308
+   Mode improvement = 18.3222
+   New value of jscale = 0.23106
+==========================================================
+
+==========================================================
+   Change in the posterior covariance matrix = 1.1274.
+   Change in the posterior mean = 0.33177.
+   Current mode = 854.046
+   Mode improvement = 27.2848
+   New value of jscale = 0.19766
+==========================================================
+
+Optimal value of the scale parameter = 0.19766
+
+
+Final value of minus the log posterior (or likelihood):854.045955 
+
+RESULTS FROM POSTERIOR ESTIMATION
+parameters
+               prior mean     mode    s.d.  prior pstdev
+
+c_rho_a            0.5000   0.7714  0.0763   beta 0.2000 
+c_rho_b            0.5000   0.7780  0.0466   beta 0.2000 
+c_rho_q            0.5000   0.2069  0.0860   beta 0.2000 
+c_rho_g            0.5000   0.7249  0.0649   beta 0.2000 
+c_rho_ga           0.5000   0.1854  0.0575   beta 0.2000 
+c_rho_p            0.5000   0.8912  0.0508   beta 0.2000 
+c_rho_w            0.5000   0.6158  0.0675   beta 0.2000 
+c_rho_r            0.5000   0.6908  0.0638   beta 0.2000 
+c_mu_p             0.5000   0.8207  0.0784   beta 0.2000 
+c_mu_w             0.5000   0.5693  0.0718   beta 0.2000 
+c_rho_p_energy     0.5000   0.6565  0.0791   beta 0.2000 
+c_rho_p_food       0.5000   0.3448  0.1003   beta 0.2000 
+c_alpha            0.3000   0.2796  0.0286   norm 0.0500 
+c_beta_bar         0.2500   0.2043  0.1035   gamm 0.1000 
+c_e_bar            0.0000   0.2196  0.0393   norm 2.0000 
+c_gamma_w          0.5000   0.2419  0.0968   beta 0.1500 
+c_gamma_p          0.5000   0.0798  0.0358   beta 0.1500 
+c_h                0.7000   0.4025  0.0457   beta 0.1000 
+c_psi_p            1.2500   1.4832  0.0766   norm 0.1250 
+c_pi_bar           0.6250   0.6150  0.0631   gamm 0.1000 
+c_phi              4.0000   4.3698  1.1651   norm 1.5000 
+c_psi              0.5000   0.6927  0.0741   beta 0.1500 
+c_rho_intr         0.7500   0.9647  0.0083   beta 0.1000 
+c_rpi              1.5000   1.0826  0.1013   norm 0.2500 
+c_rdy              0.1250   0.0991  0.0306   norm 0.0500 
+c_ry               0.1250   0.2068  0.0246   norm 0.0500 
+c_omega            2.0000   3.6253  0.5763   norm 0.7500 
+c_tau_bar          0.4000   0.1082  0.0326   norm 0.1000 
+c_theta_p          0.5000   0.5197  0.0295   beta 0.1000 
+c_theta_w          0.5000   0.4978  0.0727   beta 0.1000 
+c_v                1.5000   0.2500  0.0520   norm 0.3750 
+
+standard deviation of shocks
+               prior mean     mode    s.d.  prior pstdev
+
+eta_a              0.1000   1.0496  0.1595   invg 2.0000 
+eta_b              0.1000   1.8450  0.3097   invg 2.0000 
+eta_g              0.1000   0.5768  0.0591   invg 2.0000 
+eta_q              0.1000   1.5813  0.1652   invg 2.0000 
+eta_r              0.1000   0.0505  0.0069   invg 2.0000 
+eta_p              0.1000   0.6634  0.0953   invg 2.0000 
+eta_w              0.1000   1.9329  0.2644   invg 2.0000 
+eta_s              0.1000   1.7465  0.3905   invg 2.0000 
+eta_p_energy       0.1000   3.0000  0.6006   invg 2.0000 
+eta_p_food         0.1000   1.0730  0.1687   invg 2.0000 
+
+
+Log data density [Laplace approximation] is -940.686506.
+
+
+MODEL SUMMARY
+
+  Number of variables:         62
+  Number of stochastic shocks: 10
+  Number of state variables:   32
+  Number of jumpers:           15
+  Number of static variables:  26
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables              eta_b         eta_q         eta_g         eta_a         eta_p         eta_s         eta_w         eta_r  eta_p_energy    eta_p_food
+eta_b               3.403926      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000
+eta_q               0.000000      2.500508      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000
+eta_g               0.000000      0.000000      0.332736      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000
+eta_a               0.000000      0.000000      0.000000      1.101701      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000
+eta_p               0.000000      0.000000      0.000000      0.000000      0.440099      0.000000      0.000000      0.000000      0.000000      0.000000
+eta_s               0.000000      0.000000      0.000000      0.000000      0.000000      3.050341      0.000000      0.000000      0.000000      0.000000
+eta_w               0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      3.736135      0.000000      0.000000      0.000000
+eta_r               0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.002550      0.000000      0.000000
+eta_p_energy        0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      9.000000      0.000000
+eta_p_food          0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      0.000000      1.151303
+
+POLICY AND TRANSITION FUNCTIONS
+                                  pi
+r(-1)                      -0.206388
+z(-1)                       0.001974
+kbar(-1)                   -0.028156
+ygap(-1)                    0.000749
+zf(-1)                     -0.001787
+kbarf(-1)                   0.017897
+epsilon_b(-1)               0.000870
+epsilon_q(-1)              -0.001033
+epsilon_g(-1)               0.001271
+epsilon_a(-1)              -0.013636
+epsilon_p(-1)              -3.238529
+epsilon_s(-1)               0.000923
+epsilon_w(-1)               0.080499
+epsilon_r(-1)               0.519953
+epsilon_p_energy(-1)       -0.096154
+epsilon_p_food(-1)         -0.052753
+eta_p(-2)                   3.228196
+eta_w(-2)                  -0.074425
+c(-1)                       0.001317
+pi(-1)                      0.007371
+i(-1)                      -0.003586
+w(-1)                       0.030467
+e(-1)                       0.005190
+pi_core(-1)                 0.052401
+pi_energy(-1)               0.008477
+pi_food(-1)                 0.016183
+cf(-1)                     -0.000675
+invf(-1)                    0.002876
+eta_b                       0.001118
+eta_q                      -0.004993
+eta_g                       0.001754
+eta_a                      -0.017351
+eta_p                      -0.796921
+eta_s                       0.000924
+eta_w                       0.031750
+eta_r                       0.752638
+eta_p_energy               -0.146454
+eta_p_food                 -0.153000
+
+
+MOMENTS OF SIMULATED VARIABLES
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+pi                0.022141        0.888271        0.789026        0.087774        0.209019
+
+
+CORRELATION OF SIMULATED VARIABLES
+VARIABLE        pi
+pi          1.0000
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES
+VARIABLE         1       2       3       4       5
+pi          0.5460  0.4051  0.3073  0.2244  0.1717
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent)
+                 eta_b             eta_q             eta_g             eta_a             eta_p             eta_s             eta_w             eta_r      eta_p_energy        eta_p_food  Tot. lin. contr.
+pi                1.93              0.12              0.00              0.09             47.08              0.16              2.88              1.68             42.11              3.64             99.70
+Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
+
+Total computing time : 0h12m35s
+Note: warning(s) encountered in MATLAB/Octave code
