@@ -31,13 +31,12 @@ hicp_indeks_2015_100 <- get_eurostat(
                      names_prefix = "HICP_", 
                      values_from = values) 
   
-
 # ----------------------------------
 # KURSY WALUTOWE (EBC, dzienne)
 # ----------------------------------
 download_ECB_FX_rates <- function(currency, start_date) {
   key <- paste0("EXR.D.", currency, ".EUR.SP00.A")
-  df <- get_data(key, list(
+  df <- ecb::get_data(key, filter = list(
     startPeriod = format(as.Date(start_data), "%Y-%m-%d"))) |>
     mutate(obstime = as.Date(obstime)) |>
     select(obstime, obsvalue) %>%
@@ -53,13 +52,13 @@ bulk_download_FX_rates <- function(start_date){
   return(kursy_walut)
 } 
 
-df_final <- bulk_download_FX_rates()
+df_final <- bulk_download_FX_rates(start_date)
 
 # ----------------------------------
 # STOPY PROCENTOWE (EBC, dzienne)
 # ----------------------------------
 pobierz_stope_ecb <- function(klucz, nazwa_stopy) {
-  dane <- get_data(klucz, list(
+  dane <- ecb::get_data(klucz, list(
     startPeriod = format(as.Date(start_data), "%Y-%m-%d"))) %>%
     mutate(obstime = as.Date(obstime)) %>%
     select(obstime, obsvalue) %>%
