@@ -69,12 +69,10 @@ download_script<- function(){
     list(endpoint = "poultry", params = list(categories="broilers"), out_file_name = "EU_Poultry.csv"),
     list(endpoint = "poultry/egg", params = list(categories="poultry"), out_file_name = "EU_Eggs.csv"),
     list(endpoint = "sheepAndGoat", params = list(categories="sheepAndGoat"), out_file_name = "EU_SheepAndGoat.csv"),
-    list(endpoint = "rawMilk", params = list(categories="rawMilk"), out_file_name = "EU_RawMilk.csv"),
     list(endpoint = "dairy", params = list(categories="dairy"), out_file_name = "EU_Dairy.csv"),
     list(endpoint = "fruitAndVegetable", params = list(categories="fruitAndVegetable"), out_file_name = "EU_FruitAndVegetable.csv"),
     list(endpoint = "cereal", params = list(categories="cereal"), out_file_name = "EU_Cereal.csv"),
     list(endpoint = "oilseeds", params = list(categories="oilseeds"), out_file_name = "EU_Oilseeds.csv"),
-    list(endpoint = "sugar", params = list(categories="sugar"), out_file_name = "EU_Sugar.csv"),
     list(endpoint = "wine", params = list(categories="wine"), out_file_name = "EU_Wine.csv")
   )
 
