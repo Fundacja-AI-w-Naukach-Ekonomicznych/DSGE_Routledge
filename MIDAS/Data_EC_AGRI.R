@@ -64,10 +64,18 @@ bulk_download_EU_Countries <- function(url_links, output_file){
 
 download_script<- function(){
   dane <- list(
-    list(endpoint = "beef",    params = list(categories="cows"), out_file_name = "EU_Cows.csv"),
+    list(endpoint = "beef", params = list(categories="cows"), out_file_name = "EU_Cows.csv"),
     list(endpoint = "pigmeat", params = list(categories="pigs"), out_file_name = "EU_Pigs.csv"),
     list(endpoint = "poultry", params = list(categories="broilers"), out_file_name = "EU_Poultry.csv"),
-    list(endpoint = "poultry/egg", params = list(), out_file_name = "EU_Eggs.csv")
+    list(endpoint = "poultry/egg", params = list(categories="poultry"), out_file_name = "EU_Eggs.csv"),
+    list(endpoint = "sheepAndGoat", params = list(categories="sheepAndGoat"), out_file_name = "EU_SheepAndGoat.csv"),
+    list(endpoint = "rawMilk", params = list(categories="rawMilk"), out_file_name = "EU_RawMilk.csv"),
+    list(endpoint = "dairy", params = list(categories="dairy"), out_file_name = "EU_Dairy.csv"),
+    list(endpoint = "fruitAndVegetable", params = list(categories="fruitAndVegetable"), out_file_name = "EU_FruitAndVegetable.csv"),
+    list(endpoint = "cereal", params = list(categories="cereal"), out_file_name = "EU_Cereal.csv"),
+    list(endpoint = "oilseeds", params = list(categories="oilseeds"), out_file_name = "EU_Oilseeds.csv"),
+    list(endpoint = "sugar", params = list(categories="sugar"), out_file_name = "EU_Sugar.csv"),
+    list(endpoint = "wine", params = list(categories="wine"), out_file_name = "EU_Wine.csv")
   )
 
   for (element in dane) {
@@ -78,7 +86,9 @@ download_script<- function(){
     
   }
   
-  
-download_script()
-  
 }
+
+download_script()
+
+}
+
