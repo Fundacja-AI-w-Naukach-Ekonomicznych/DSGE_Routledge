@@ -9,7 +9,7 @@ add_inflation_mod <- function(df) {
   # Inflation table:
   # https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_mmor/default/table?lang=en&category=prc.prc_hicp
   
-    df_inflation <- get_eurostat("prc_hicp_mmor",
+  df_inflation <- get_eurostat("prc_hicp_mmor",
                                filters = list(geo = country_code,
                                               coicop = c("TOT_X_NRG_FOOD", "NRG", "FOOD")))
   

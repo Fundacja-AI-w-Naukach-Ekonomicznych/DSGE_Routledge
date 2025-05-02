@@ -1,4 +1,4 @@
-@#define reestimate_flag = 1
+@#define reestimate_flag = 0
 
 var     
         c           ${c}$         (long_name='Consumption')

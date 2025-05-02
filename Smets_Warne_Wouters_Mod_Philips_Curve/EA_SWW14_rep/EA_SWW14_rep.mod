@@ -1,4 +1,4 @@
-@#define reestimate_flag = 1
+@#define reestimate_flag = 0
 @#define philips_curve_flag = 1
 
 var     
