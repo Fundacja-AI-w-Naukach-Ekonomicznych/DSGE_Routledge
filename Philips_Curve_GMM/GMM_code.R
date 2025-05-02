@@ -2,6 +2,7 @@ library("eurostat")
 library("tidyverse")
 library("mFilter")
 library("gmm")
+library('BayesRGMM')
 
 GMM_data_download <- function(country_code){
   # 1. GDP table: 
@@ -54,8 +55,12 @@ generate_GMM_Features <- function(df){
   df$cpi_lead <- lead(df$cpi, 1)
   df$cpi_lag <- lag(df$cpi, 1)
   df$cpi_lag_2 <- lag(df$cpi, 2)
+  df$cpi_lag_3 <- lag(df$cpi, 3)
+  df$cpi_lag_4 <- lag(df$cpi, 4)
   df$output_gap_lag <- lag(df$output_gap)
-
+  df$output_gap_lag_2 <- lag(df$output_gap,2)
+  df$output_gap_lag_3 <- lag(df$output_gap,3)
+  
   return(df)
 }
 
@@ -64,36 +69,47 @@ estimate_nkpc_gmm <- function(df) {
   df <- df %>% na.omit()
   
   nkpc_moments <- function(theta, data) {
-    infl_t     <- df[, "cpi"]
+    infl_t     <- data[, "cpi"]
     infl_lead  <- data[, "cpi_lead"]
     infl_lag   <- data[, "cpi_lag"]
-    infl_lag_2 <- data[, "cpi_lag"]
+    infl_lag_2 <- data[, "cpi_lag_2"]
+    infl_lag_3 <- data[, "cpi_lag_3"]
+    infl_lag_4 <- data[, "cpi_lag_4"]
+    
     gap_t      <- data[, "output_gap"]
     gap_lag    <- data[, "output_gap_lag"]
+    gap_lag_2    <- data[, "output_gap_lag_2"]
+    gap_lag_3    <- data[, "output_gap_lag_3"]
     
-    gamma_f <- exp(theta[1]) / (1 + exp(theta[1]))
-    kappa   <- exp(theta[2])
+    if (theta[1] < 0 || theta[1] > 1 || theta[2] < 0) {
+      return(matrix(1e6, nrow = nrow(data), ncol = 4))  # 4 instrumenty
+    }
+    
+    gamma_f <- theta[1]
+    kappa   <- theta[2]
 
     res <- infl_t - gamma_f * infl_lead -  (1-gamma_f) * infl_lag - kappa * gap_t 
     
     # Instrumenty: infl_lag, ulc_lag (2 instrumenty)
-    f <- cbind(res * infl_lag_2, res * gap_lag)
+    f <- cbind(res * infl_lag, res * infl_lag_2,
+               res * gap_lag, res * gap_lag_2)
     return(f)
   }
   
-  start_vals <- c(0.7, 0.3)  # wartości początkowe
+  start_vals <- c(0.7, 0.1)  # wartości początkowe
   gmm_result <- gmm(nkpc_moments, x = df, t0 = start_vals,   
-                    type = "twoStep", kernel = "Quadratic Spectral", vcov = "HAC")
+                    type = "iterative", kernel = "Quadratic Spectral", vcov = "HAC", 
+                    bw = bwNeweyWest)
   
   return(gmm_result)
 }
 
-compute_GMM_proc <- function(country_code, Covid_flag = FALSE){
+compute_GMM_proc <- function(country_code, Test_Sample = FALSE){
   
   df <- GMM_data_download(country_code)
   
-  if (Covid_flag == TRUE) {
-    df <- df |> filter(time < "2020-01-01")
+  if (Test_Sample == TRUE) {
+    df <- df |> filter(time < "2015-01-01")
   }
   
   df <- Calculate_Output_Gap(df)
@@ -103,14 +119,15 @@ compute_GMM_proc <- function(country_code, Covid_flag = FALSE){
   return(model)
 }
 
-compare_params <- function(Covid_flag = FALSE){
+compare_params <- function(Test_Sample = FALSE){
   file_path <- paste0(dirname(rstudioapi::getSourceEditorContext()$path),"/")
   eu_countries <- c("AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","EL",
                     "HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE")
   
   final_coefficients <- c()
   for(country_code in eu_countries){
-    model <- compute_GMM_proc(country_code, Covid_flag)
+    print(country_code)
+    model <- compute_GMM_proc(country_code, Test_Sample)
     
     # Wyciągnięcie współczynników
     coefficients <- model$coefficients
@@ -120,12 +137,12 @@ compare_params <- function(Covid_flag = FALSE){
   
   colnames(final_coefficients) <- c("Country", "gamma_f", "kappa")
   final_coefficients <- final_coefficients |> as.data.frame() |>
-    mutate(gamma_f = exp(as.numeric(gamma_f)) / (1 + exp(as.numeric(gamma_f))),
+    mutate(gamma_f = as.numeric(gamma_f),
            gamma_b = 1 - gamma_f,
-           kappa = exp(as.numeric(kappa)))
+           kappa = as.numeric(kappa))
   
-  if (Covid_flag == TRUE) {
-    file_name <- "GMM_coefficients_preCovid.csv"
+  if (Test_Sample == TRUE) {
+    file_name <- "GMM_coefficients_Test.csv"
   } else {
     file_name <- "GMM_coefficients.csv"
   }
@@ -135,4 +152,6 @@ compare_params <- function(Covid_flag = FALSE){
             row.names = FALSE)
 }
 
-compare_params(Covid_flag = TRUE)
+if (sys.nframe() == 0) {
+    compare_params(Test_Sample = FALSE)
+}

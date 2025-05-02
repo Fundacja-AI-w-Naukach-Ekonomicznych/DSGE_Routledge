@@ -1,0 +1,7 @@
+Starting Dynare (version 5.4).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+WARNING: In stoch_simul: E_PHI found more than once in symbol list. Removing all but first occurrence.
+WARNING: In stoch_simul: E_INOM found more than once in symbol list. Removing all but first occurrence.
+ERROR: E_EPS_G interest_ not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+
