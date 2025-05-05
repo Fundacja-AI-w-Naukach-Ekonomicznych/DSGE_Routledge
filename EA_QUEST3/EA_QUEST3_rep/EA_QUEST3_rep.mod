@@ -10,61 +10,47 @@
 // Replication of IRF
 
 var  
-    E_BGYN 
-    E_BWRY 
-    E_CLCSN         ${C}$                       (long_name = 'Level - Aggregate Consumption')
-    E_DBGYN  
-    E_LER 
-    E_ETA          ${\eta}$                     (long_name='Aggregate price markup') 
-    E_GC 
-    E_GCL 
-    E_GCLC 
-    E_GCNLC        ${\Delta c_i}$               (long_name='Growth rate - Consumption - unconstrained households') 
-    E_GE    
-    E_GEX 
-    E_GEXL 
-    E_GG 
-    E_GGL 
-    E_GI            ${i}$                       (long_name='Growth rate - Total Investments')
+    E_BGYN          ${b_g}$                     (long_name = 'Government Debt-to-GDP Ratio')
+    E_BWRY          ${b_w}$                     (long_name = 'Foreign Debt-to-GDP Ratio')
+    E_CLCSN         ${c_k}$                     (long_name = 'Consumption - Constrained Households')
+    E_DBGYN         ${\Delta b_g}$              (long_name = 'Change Government Debt-to-GDP Ratio')
+    E_LER           ${\log e}$                  (long_name = 'Logarithm – Nominal Exchange Rate')
+    E_ETA           ${\eta}$                    (long_name = 'Aggregate price markup') 
+    E_GC            ${\Delta c}$                (long_name = 'Growth rate – Aggregate Consumption')
+    E_GCL           ${\Delta c_L}$              (long_name = 'Growth rate – Per Capita Consumption')
+    E_GCLC          ${\Delta c_k}$              (long_name = 'Growth rate – Consumption – Constrained Households')
+    E_GCNLC         ${\Delta c_i}$              (long_name = 'Growth rate – Consumption – Unconstrained Households')
+    E_GE            ${\Delta e}$                (long_name = 'Growth rate – Nominal Exchange Rate')
+    E_GEX           ${\Delta x}$                (long_name = 'Growth rate – Exports')
+    E_GEXL          ${\Delta x_L}$              (long_name = 'Growth rate – Exports per capita')
+    E_GG            ${\Delta g}$                (long_name = 'Growth rate – Government Consumption')
+    E_GGL           ${\Delta g_L}$              (long_name = 'Growth rate – Government Consumption per capita')
+    E_GI            ${i}$                       (long_name = 'Growth rate – Total Investment')
+    E_GIG           ${i_g}$                     (long_name = 'Growth rate – Government Investment')
+    E_GIL           ${i_L}$                     (long_name = 'Growth rate – Investment per capita')
+    E_GIM           ${\Delta m}$                (long_name = 'Growth rate – Imports')
+    E_GIML          ${\Delta m_L}$              (long_name = 'Growth rate – Imports per capita')
+    E_GK            ${k}$                       (long_name = 'Growth rate - Private Capital')
+    E_GKG           ${k_g}$                     (long_name = 'Growth rate - Public capital')
+    E_GL            ${l}$                       (long_name = 'Growth rate - Labour supply')
 
-//********************w rownaniach jest cos takiego, czego tutaj nie bylo*********//
-    E_GI(+1)        ${g_{I,+1}}$                (long_name='Growth rate - Total Investments - expected')
-//
+//*****do sprawdzenia
+    E_GSN           ${g_{g}}$                   (long_name='Level – Government Consumption (in steady state share)')
     
-    E_GIG           ${i_g}$                     (long_name='Growth rate - Government Investments')
-    E_GIL 
-    E_GIM 
-    E_GIML 
-    E_GK            ${k}$                       (long_name='Growth rate - Private Capital')
-    E_GKG           ${k_g}$                     (long_name='Growth rate - Public capital')
-    E_GL            ${l}$                       (long_name='Growth rate - Labour supply')
-    E_GSN 
-    E_GTAX 
-    E_GTFP          ${a}$                       (long_name='Growth rate - Total Factor of Productivity')
-    E_GTFPUCAP 
-    E_GTR 
-    E_GUC 
-    E_GUCAP         ${\Delta ucap)}$            (long_name ='Growth rate - Log of Capacity Utilization')
-    E_GWRY 
-    E_GY            ${\Delta y}$                (long_name ='Growth rate - Output')
-    
-    
-//********************analogicznie
-    E_GY(+1)        ${\Delta_{y,+1}}$           (long_name='Growth rate - Output - Expected')
-//
-
-    E_GYL 
-    E_GYPOT         ${\Delta y*}$               (long_name ='Growth rate - Potential Output') 
-    E_GYW
+    E_GTAX          ${\Delta tax}$              (long_name = 'Growth rate – Tax Revenue')
+    E_GTFP          ${a}$                       (long_name = 'Growth rate – Total Factor Productivity')
+    E_GTFPUCAP      ${a_{ucap}}$                (long_name = 'Growth rate – TFP including capacity utilisation')
+    E_GTR           ${\Delta tr}$               (long_name = 'Growth rate – Government Transfers')
+    E_GUC           ${g_{uc}}$                  (long_name = 'Growth rate – Consumption Preference Shock')
+    E_GUCAP         ${\Delta u}$                (long_name = 'Growth rate – Capacity Utilisation (log difference)')
+    E_GWRY          ${\Delta y_w^r}$            (long_name = 'Growth rate – Real Wage Weighted Output')
+    E_GY            ${\Delta y}$                (long_name = 'Growth rate – Real Output')
+    E_GYL           ${\Delta y_L}$              (long_name = 'Growth rate – Output per capita')
+    E_GYPOT         ${\Delta y^*}$              (long_name = 'Growth rate – Potential Output')
+    E_GYW           ${\Delta y^w}$              (long_name = 'Growth rate – Foreign Output')
     E_INOM          ${i}$                       (long_name = 'Nominal Interest Rate')
     E_INOMW         ${i*}$                      (long_name = 'World Nominal Interest Rate')
     E_LL            ${l}$                       (long_name = 'Logarithm - Labour Supply')
-
-//********************analogicznie
-    E_LL(+1)       ${\ell_{+1}}$                (long_name='Expected log of hours worked')
-    E_LL(-1)       ${\ell_{-1}}$                (long_name='Lagged log of hours worked')
-//
-
     E_LL0           ${l_0}$                     (long_name = 'Logarithm - Labour Supply in the Steady State')
     E_LBGYN         ${B}$                       (long_name = 'Logarithm - Government Debt')
     E_LCSN          ${c}$                       (long_name = 'Logarithm - Aggregate Consumption')
@@ -72,87 +58,69 @@ var
     E_LCNLCSN       ${c_i}$                     (long_name = 'Logarithm - Consumption - Non-constrained Households')
     E_LEXYN         ${x}$                       (long_name = 'Logarithm - Aggregate Export')
     E_LGSN          ${c_g}$                     (long_name = 'Logarithm - Government Consumption')
-    E_LIGSN         ${i_g}$                     (long_name = 'Logarithm - Government Investments')
-    E_LIMYN         ${m}$                       (long_name = 'Logarithm - Aggregate Import')
-    E_LIK 
-    E_LIKG 
-    E_LISN 
-    E_LOL 
-    E_LPCP 
-    E_LPMP 
-    E_LPXP 
-    E_LTRYN 
-    E_LUCYN 
-    E_LUCLCYN 
-    E_LYGAP         ${ygap}$                    (long_name='Output gap')
-    E_LYKPPI 
-    E_LYWR 
-    E_LYWY 
-    E_MRY 
+    E_LIGSN         ${\log i_g}$                (long_name = 'Logarithm – Government Investment')
+    E_LIMYN         ${\log m}$                  (long_name = 'Logarithm – Aggregate Imports')
+    E_LIK           ${\log i}$                  (long_name = 'Logarithm – Private Investment')
+    E_LIKG          ${\log i_g}$                (long_name = 'Logarithm – Public Investment')
+    E_LISN          ${\log i_s}$                (long_name = 'Logarithm – Private Investment Supply')
+    E_LOL           ${\ell_{ol}}$               (long_name = 'Logarithm – Overhead Labour Share')
+    E_LPCP          ${p^c}$                     (long_name = 'Logarithm – Consumer Price Index (CPI)')
+    E_LPMP          ${p^m}$                     (long_name = 'Logarithm – Import Price Index (incl. markup)')
+    E_LPXP          ${p^x}$                     (long_name = 'Logarithm – Export Price Index (incl. markup)')
+    E_LTRYN         ${\log tr_y}$               (long_name = 'Logarithm – Government Transfers-to-GDP Ratio')
+    E_LUCYN         ${\lambda_c}$               (long_name = 'Logarithm – Marginal Utility of Consumption (Unconstrained HH)')
+    E_LUCLCYN       ${\lambda_{c_k}}$           (long_name = 'Logarithm – Marginal Utility of Consumption (Constrained HH)')
+    E_LYGAP         ${ygap}$                    (long_name = 'Output gap')
+    E_LYKPPI        ${\log(y/k)}$               (long_name = 'Logarithm – Marginal Product of Capital (Output-to-Capital Ratio)')
+    E_LYWR          ${\log y^w}$                (long_name = 'Logarithm – Wage-Weighted Output')
+    E_LYWY          ${\log y^*}$                (long_name = 'Logarithm – Foreign Output (World Output)')
+    E_MRY           ${m^r_y}$                   (long_name = 'Marginal Rate of Return on Money Holdings')
 
-//********************analogicznie
-    E_PHI(1)        ${\pi_{+1}}$             (long_name='Inflation - Expected inflation next period')
-    E_PHI(-1)       ${\pi_{-1}}$             (long_name='Inflation - Lagged inflation')
-//
+//*****Zerknij na te inflacje czy jest ok
+    E_PHI           ${\pi^{GDP}}$               (long_name = 'Inflation – GDP deflator')
+    E_PHIC          ${\pi}$                     (long_name = 'Inflation – Consumer price')
+    E_PHIPI         ${\pi^{PPI}}$               (long_name = 'Inflation - Producer price')
+    E_PHIM          ${\pi^m}$                   (long_name = 'Inflation – Import prices')
+    E_PHIML         ${\pi^m_L}$                 (long_name = 'Inflation – Import prices (log-linearised or level-adjusted)')
+    E_PHIW          ${\pi^w}$                   (long_name = 'Inflation - World inflation')
+    E_PHIX          ${\pi^x}$                   (long_name = 'Inflation – Export prices')
+    E_PHIXL         ${\pi^x_L}$                 (long_name = 'Inflation – Export prices (log-linearised or level-adjusted)')  
+    
+    E_Q             ${q}$                       (long_name = 'Value of Capital Relative to Replacement Cost')
+    E_R             ${r}$                       (long_name = 'Real Interest Rate')
+    E_TAXYN         ${tax_y}$                   (long_name = 'Lump-Sum Taxes as Share of GDP')
+    E_TBYN          ${trade}$                   (long_name = 'Trade Balance as Share of GDP')
+    E_TRTAXYN       ${trtax_y}$                 (long_name = 'Net Transfers Minus Taxes as Share of GDP')
+    E_TRW           ${tr}$                      (long_name = 'Government Transfers per Worker')
+    E_TRYN          ${tr_y}$                    (long_name = 'Government Transfers as Share of GDP')
+    E_TW            ${\tau^w}$                  (long_name = 'Labour Income Tax Rate')
+    E_UCAP          ${ucap}$                    (long_name = 'Capacity Utilisation Rate')
+    E_UCAP0         ${ucap_0}$                  (long_name = 'Steady-State Capacity Utilisation Rate')
+    E_VL            ${\lambda_l}$               (long_name = 'Marginal Disutility of Labour – Unconstrained Households')
+    E_VLLC          ${\lambda_{l_k}}$           (long_name = 'Marginal Disutility of Labour – Constrained Households')
+    E_WPHI          ${w^\pi}$                   (long_name = 'Nominal Wage Inflation')
+    E_WRPHI         ${w^\pi_r}$                 (long_name = 'Real Wage Inflation')
+    E_WS            ${w_s}$                     (long_name = 'Real Wage (in efficiency units)')
+    E_WSW           ${w_{sw}}$                  (long_name = 'After-Tax Real Wage')
+    E_ZEPS_C        ${\varepsilon_c}$           (long_name = 'Consumption Preference Shocks')
+    E_ZEPS_ETA      ${\varepsilon_{\eta}}$      (long_name = 'Prices Mark-up Shocks')
+    E_ZEPS_ETAM     ${\varepsilon_{\eta_m}}$    (long_name = 'Export Prices Mark-up Shocks')
+    E_ZEPS_ETAX     ${\varepsilon_{\eta_x}}$    (long_name = 'Import Prices Mark-up Shocks')
+    E_ZEPS_EX       ${\varepsilon_{\x}}$        (long_name = 'Trade Balance Shocks')
+    E_ZEPS_G        ${\varepsilon_g}$           (long_name = 'Fiscal Policy Shocks - Consumption')
+    E_ZEPS_IG       ${\varepsilon_{ig}}$        (long_name = 'Fiscal Policy Shock – Government Investment')
+    E_ZEPS_L        ${\varepsilon_l}$           (long_name = 'Labour Supply Shock')
+    E_ZEPS_M        ${\varepsilon_m}$           (long_name = 'Monetary Policy Shock')
+    E_ZEPS_PPI      ${\varepsilon^{ppi}}$       (long_name = 'Producer Price Inflation Shock')
+    E_ZEPS_RPREME   ${\varepsilon^{rp}}$        (long_name = 'Shock to Risk Premium on Foreign Debt')
+    E_ZEPS_RPREMK   ${\varepsilon^{rp_k}}$      (long_name = 'Shock to Risk Premium on Capital')
+    E_ZEPS_TR       ${\varepsilon_{tr}}$        (long_name = 'Fiscal Policy Shock – Transfers')
+    E_ZEPS_W        ${\varepsilon_w}$           (long_name = 'Wage Markup Shock')
+    E_ZPHIT         ${\pi^T}$                   (long_name = 'Inflation Target (Central Bank)')
+    E_LCY           ${\log c^r}$                (long_name = 'Logarithm – Real Aggregate Consumption')
+    E_LGY           ${\log g^r}$                (long_name = 'Logarithm – Real Government Consumption')
+    E_LWS           ${\log w_s}$                (long_name = 'Logarithm – Real Wage in Efficiency Units') 
 
-//*******dodalem tak
-    E_PHI           ${\pi^{GDP}}$              (long_name='Inflation – GDP deflator')
-    E_PHIC          ${\pi}$                    (long_name='Inflation – Consumer price')
-    E_PHIPI         ${\pi^{PPI}}$              (long_name='Inflation - Producer price')
-    E_PHIM          ${\pi^m}$                  (long_name='Inflation – Import prices')
-    E_PHIML         ${\pi^m_L}$                (long_name='Inflation – Import prices (log-linearised or level-adjusted)')
-    E_PHIW          ${\pi^w}$                  (long_name='Inflation - World inflation')
-    E_PHIX          ${\pi^x}$                  (long_name='Inflation – Export prices')
-    E_PHIXL         ${\pi^x_L}$                (long_name='Inflation – Export prices (log-linearised or level-adjusted)')
-
-//*****bylo tak   
-    
-    E_PHI 
-    E_PHIC           ${\pi}$                    (long_name='Inflation')
-    E_PHIPI 
-    E_PHIM 
-    E_PHIML 
-    E_PHIW 
-    E_PHIX 
-    E_PHIXL 
-    
-//***    
-    
-    
-    E_Q 
-    E_R              ${r}$                      (long_name='Real Interest Rate')
-    E_TAXYN 
-    E_TBYN           ${trade}$                  (long_name='Trade Balance')
-    E_TRTAXYN 
-    E_TRW 
-    E_TRYN 
-    E_TW
-    E_UCAP           ${ucap}$                   (long_name='Capacity Utilization')
-    E_UCAP0          ${ucap0}$                  (long_name='Capacity Utilization in the Steady State')
-    E_VL 
-    E_VLLC 
-    E_WPHI 
-    E_WRPHI 
-    E_WS  
-    E_WSW 
-    E_ZEPS_C        ${\varepsilon_c}$           (long_name='Consumption Preference Shocks')
-    E_ZEPS_ETA      ${\varepsilon_{\eta}}$      (long_name='Prices Mark-up Shocks')
-    E_ZEPS_ETAM     ${\varepsilon_{\eta_m}}$    (long_name='Export Prices Mark-up Shocks')
-    E_ZEPS_ETAX     ${\varepsilon_{\eta_x}}$    (long_name='Import Prices Mark-up Shocks')
-    E_ZEPS_EX       ${\varepsilon_{\x}}$        (long_name='Trade Balance Shocks')
-    E_ZEPS_G        ${\varepsilon_g}$           (long_name='Fiscal Policy Shocks - Consumption')
-    E_ZEPS_IG       ${\varepsilon_ig}$          (long_name='Fiscal Policy Shocks - Gov. Investments')
-    E_ZEPS_L        ${\varepsilon_l}$           (long_name='Labour Supply Shocks')
-    E_ZEPS_M        ${\varepsilon_m}$           (long_name='Monetary Policy Shocks')
-    E_ZEPS_PPI 
-    E_ZEPS_RPREME 
-    E_ZEPS_RPREMK	
-    E_ZEPS_TR       ${\varepsilon_tr}$          (long_name='Fiscal Policy Shocks - Transfers')
-    E_ZEPS_W  
-    E_ZPHIT         ${\pi^{T}}$                 (long_name='Inflation Target') 
-    E_LCY 
-    E_LGY 
-    E_LWS
 
 
 //**************************************************************************
@@ -162,26 +130,26 @@ var
  
     
 varexo
-    E_EPS_C         ${\varepsilon_c}$           (long_name='Random disturbance - Consumption Preference Shock')
-    E_EPS_ETA       ${\varepsilon_{\eta}}$      (long_name='Random disturbance - Prices Mark-up Shock')
-    E_EPS_ETAM      ${\varepsilon_{\eta_m}}$    (long_name='Random disturbance - Export Prices Mark-up Shock')
-    E_EPS_ETAX      ${\varepsilon_{\eta_x}}$    (long_name='Random disturbance - Import Prices Mark-up Shock')
-    E_EPS_EX        ${\varepsilon_{\x}}$        (long_name='Random disturbance - Trade Balance Shock')
-    E_EPS_G         ${\varepsilon_g}$           (long_name='Random disturbance - Fiscal Policy Shock - Consumption')
-    E_EPS_IG        ${\varepsilon_ig}$          (long_name='Random disturbance - Fiscal Policy Shock - Gov. Investments')
-    E_EPS_INOMW     ${\varepsilon_i*}$          (long_name='Random disturbance - Global Monetary Policy Shock')
-    E_EPS_L         ${\varepsilon_l}$           (long_name='Random disturbance - Labour Supply Shock')
-    E_EPS_LOL       ${\varepsilon_lol}$         (long_name='Random disturbance - Labour Overhead Shock')
-    E_EPS_M         ${\varepsilon_m}$           (long_name='Random disturbance - Monetary Policy Shock')
-    E_EPS_PPI 
-    E_EPS_PW        ${\varepsilon_{\pi_w}}$     (long_name='Random disturbance - World Inflation Shock')
-    E_EPS_RPREME
-    E_EPS_RPREMK
-    E_EPS_TR        ${\varepsilon_tr}$          (long_name='Random disturbance - Fiscal Policy Shock - Transfers')
-    E_EPS_W
-    E_EPS_Y         ${\varepsilon_y}$           (long_name='Random disturbance - Productivity Shock')
-    E_EPS_YW        ${\varepsilon_y_w}$         (long_name='Random disturbance - Global Productivity Shock')
-
+    E_EPS_C         ${\varepsilon_c}$           (long_name = 'Random disturbance - Consumption Preference Shock')
+    E_EPS_ETA       ${\varepsilon_{\eta}}$      (long_name = 'Random disturbance - Prices Mark-up Shock')
+    E_EPS_ETAM      ${\varepsilon_{\eta_m}}$    (long_name = 'Random disturbance - Export Prices Mark-up Shock')
+    E_EPS_ETAX      ${\varepsilon_{\eta_x}}$    (long_name = 'Random disturbance - Import Prices Mark-up Shock')
+    E_EPS_EX        ${\varepsilon_{\x}}$        (long_name = 'Random disturbance - Trade Balance Shock')
+    E_EPS_G         ${\varepsilon_g}$           (long_name = 'Random disturbance - Fiscal Policy Shock - Consumption')
+    E_EPS_IG        ${\varepsilon_ig}$          (long_name = 'Random disturbance - Fiscal Policy Shock - Gov. Investments')
+    E_EPS_INOMW     ${\varepsilon_{i^*}}$       (long_name = 'Random Disturbance – Global Monetary Policy Shock')
+    E_EPS_L         ${\varepsilon_l}$           (long_name = 'Random Disturbance – Labour Supply Shock')
+    E_EPS_LOL       ${\varepsilon_{lol}}$       (long_name = 'Random Disturbance – Labour Overhead Shock')
+    E_EPS_M         ${\varepsilon_m}$           (long_name = 'Random Disturbance – Domestic Monetary Policy Shock')
+    E_EPS_PPI       ${\varepsilon^{ppi}}$       (long_name = 'Random Disturbance – Producer Price Inflation Shock')
+    E_EPS_PW        ${\varepsilon_{\pi_w}}$     (long_name = 'Random Disturbance – World Inflation Shock')
+    E_EPS_RPREME    ${\varepsilon^{rp}}$        (long_name = 'Random Disturbance – Risk Premium Shock on Foreign Debt')
+    E_EPS_RPREMK    ${\varepsilon^{rp_k}}$      (long_name = 'Random Disturbance – Risk Premium Shock on Capital')
+    E_EPS_TR        ${\varepsilon_{tr}}$        (long_name = 'Random Disturbance – Fiscal Policy Shock – Transfers')
+    E_EPS_W         ${\varepsilon_w}$           (long_name = 'Random Disturbance – Wage Markup Shock')
+    E_EPS_Y         ${\varepsilon_y}$           (long_name = 'Random Disturbance – TFP/Technology Shock')
+    E_EPS_YW        ${\varepsilon_{y^*}}$       (long_name = 'Random Disturbance – Global Productivity Shock') 
+ 
 
 //**************************************************************************
 // Modelbase Shocks                                                      //*       
@@ -209,7 +177,7 @@ parameters
     E_EX_INOMW    ${i_{ss}^w}$           (long_name='Steady state foreign nominal interest rate')
     
     //*********************-zostawic te dwa nizej tak czy ujednoliamy?********//
-    E_EX_R         ${r*}$                       (long_name='Natural Interest Rate')
+    E_EX_R        ${r*}$                 (long_name='Steady state Natural Interest Rate')
     E_EX_RW       ${r_{ss}^w}$           (long_name='Steady state foreign real interest rate') 
     G1E  
     GAMI2E  
@@ -295,9 +263,13 @@ parameters
     SIGIME  
     SLC            ${slc}$                      (long_name='Share of constrained households') 
     SSC
-    TAUE TP  THETAE 
+    TAUE 
+    TP  
+    THETAE 
     TINFE          ${\rho_p}$                   (long_name='Taylor rule: Sensitivity to inflation')
-    TR1E TRSN RHOTR 
+    TR1E 
+    TRSN 
+    RHOTR 
     TYE1           ${\rho_y}$                   (long_name='Taylor rule: Sensitivity to output gap')
     TYE2           ${\rho_dy}$                  (long_name='Taylor rule: Sensitivity to change in output gap') 
     TVAT
