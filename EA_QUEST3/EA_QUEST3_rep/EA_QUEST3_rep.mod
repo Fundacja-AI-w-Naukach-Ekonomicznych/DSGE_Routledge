@@ -15,17 +15,22 @@ var
     E_CLCSN         ${C}$                       (long_name = 'Level - Aggregate Consumption')
     E_DBGYN  
     E_LER 
-    E_ETA 
+    E_ETA          ${\eta}$                     (long_name='Aggregate price markup') 
     E_GC 
     E_GCL 
     E_GCLC 
-    E_GCNLC 
-    E_GE 
+    E_GCNLC        ${\Delta c_i}$               (long_name='Growth rate - Consumption - unconstrained households') 
+    E_GE    
     E_GEX 
     E_GEXL 
     E_GG 
     E_GGL 
     E_GI            ${i}$                       (long_name='Growth rate - Total Investments')
+
+//********************w rownaniach jest cos takiego, czego tutaj nie bylo*********//
+    E_GI(+1)        ${g_{I,+1}}$                (long_name='Growth rate - Total Investments - expected')
+//
+    
     E_GIG           ${i_g}$                     (long_name='Growth rate - Government Investments')
     E_GIL 
     E_GIM 
@@ -42,12 +47,24 @@ var
     E_GUCAP         ${\Delta ucap)}$            (long_name ='Growth rate - Log of Capacity Utilization')
     E_GWRY 
     E_GY            ${\Delta y}$                (long_name ='Growth rate - Output')
+    
+    
+//********************analogicznie
+    E_GY(+1)        ${\Delta_{y,+1}}$           (long_name='Growth rate - Output - Expected')
+//
+
     E_GYL 
     E_GYPOT         ${\Delta y*}$               (long_name ='Growth rate - Potential Output') 
     E_GYW
     E_INOM          ${i}$                       (long_name = 'Nominal Interest Rate')
     E_INOMW         ${i*}$                      (long_name = 'World Nominal Interest Rate')
     E_LL            ${l}$                       (long_name = 'Logarithm - Labour Supply')
+
+//********************analogicznie
+    E_LL(+1)       ${\ell_{+1}}$                (long_name='Expected log of hours worked')
+    E_LL(-1)       ${\ell_{-1}}$                (long_name='Lagged log of hours worked')
+//
+
     E_LL0           ${l_0}$                     (long_name = 'Logarithm - Labour Supply in the Steady State')
     E_LBGYN         ${B}$                       (long_name = 'Logarithm - Government Debt')
     E_LCSN          ${c}$                       (long_name = 'Logarithm - Aggregate Consumption')
@@ -72,14 +89,36 @@ var
     E_LYWR 
     E_LYWY 
     E_MRY 
+
+//********************analogicznie
+    E_PHI(1)        ${\pi_{+1}}$             (long_name='Inflation - Expected inflation next period')
+    E_PHI(-1)       ${\pi_{-1}}$             (long_name='Inflation - Lagged inflation')
+//
+
+//*******dodalem tak
+    E_PHI           ${\pi^{GDP}}$              (long_name='Inflation – GDP deflator')
+    E_PHIC          ${\pi}$                    (long_name='Inflation – Consumer price')
+    E_PHIPI         ${\pi^{PPI}}$              (long_name='Inflation - Producer price')
+    E_PHIM          ${\pi^m}$                  (long_name='Inflation – Import prices')
+    E_PHIML         ${\pi^m_L}$                (long_name='Inflation – Import prices (log-linearised or level-adjusted)')
+    E_PHIW          ${\pi^w}$                  (long_name='Inflation - World inflation')
+    E_PHIX          ${\pi^x}$                  (long_name='Inflation – Export prices')
+    E_PHIXL         ${\pi^x_L}$                (long_name='Inflation – Export prices (log-linearised or level-adjusted)')
+
+//*****bylo tak   
+    
     E_PHI 
-    E_PHIC           ${\pi}$                     (long_name='Inflation')
+    E_PHIC           ${\pi}$                    (long_name='Inflation')
     E_PHIPI 
     E_PHIM 
     E_PHIML 
     E_PHIW 
     E_PHIX 
     E_PHIXL 
+    
+//***    
+    
+    
     E_Q 
     E_R              ${r}$                      (long_name='Real Interest Rate')
     E_TAXYN 
@@ -151,8 +190,8 @@ varexo
       
   
 parameters
-    A1E 
-    A2E  
+    A1E            ${a_1}$                   (long_name='Linear cost coefficient of capacity utilisation') 
+    A2E            ${a_2}$                   (long_name='Quadratic cost coefficient of capacity utilisation')  
     ALPHAX  
     ALPHAE         ${\alpha}$                  (long_name='Capital intensity')
     ALPHAGE        ${\alpha_g}$                (long_name='Capital intensity - public sector')
@@ -160,16 +199,18 @@ parameters
     BGADJ1 
     BGADJ2 
     BGTAR 
-    DELTAE 
-    DELTAGE 
+    DELTAE        ${\delta}$              (long_name='Depreciation rate of private capital') 
+    DELTAGE       ${\delta_g}$           (long_name='Depreciation rate of public capital') 
     DGEX 
     DGIM 
     DGPM  
     DGPX 
     DDYN  
-    E_EX_INOMW
-    E_EX_R         ${r*}$                      (long_name='Natural Interest Rate')
-    E_EX_RW 
+    E_EX_INOMW    ${i_{ss}^w}$           (long_name='Steady state foreign nominal interest rate')
+    
+    //*********************-zostawic te dwa nizej tak czy ujednoliamy?********//
+    E_EX_R         ${r*}$                       (long_name='Natural Interest Rate')
+    E_EX_RW       ${r_{ss}^w}$           (long_name='Steady state foreign real interest rate') 
     G1E  
     GAMI2E  
     GAMIE  
@@ -178,16 +219,41 @@ parameters
     GAMPME 
     GAMPXE  
     GAMWE 
-    GP0 
-    GPCPI0 
-    GPOP0  
-    GPW0 
+    GP0           ${\pi_0}$              (long_name='Steady state GDP deflator inflation') 
+    GPCPI0        ${\pi_0^c}$            (long_name='Steady state CPI inflation')
+    GPOP0         ${n}$                  (long_name='Steady state population growth rate')  
+    GPW0          ${\pi_0^w}$            (long_name='Steady state foreign inflation rate')
     GSLAG  
     GVECM  
-    GFLAG  GLAGFLAG IGLAGFLAG IGFLAG TRFLAG TWFLAG  GEXOFLAG IGEXOFLAG TREXOFLAG GAMIFLAG SLCFLAG GSN  GTFP0 GY0 
-    GYW0 HABE HABLE IGSLAG IGVECM 
+    GFLAG  
+    GLAGFLAG 
+    IGLAGFLAG 
+    IGFLAG 
+    TRFLAG 
+    TWFLAG  
+    GEXOFLAG 
+    IGEXOFLAG 
+    TREXOFLAG 
+    GAMIFLAG 
+    SLCFLAG 
+    GSN           ${gsn}$                (long_name='Steady state share of government consumption in output')  
+    GTFP0         ${g_{tfp}}$            (long_name='Steady state TFP growth') 
+    GY0           ${g_y}$                (long_name='Steady state output growth rate') 
+    GYW0          ${g_y^w}$              (long_name='Steady state foreign output growth') 
+    HABE 
+    HABLE 
+    IGSLAG 
+    IGVECM 
     ILAGE          ${\rho_r}$                      (long_name='Taylor rule: interest rate smoothing')
-    INFLAGE IG1E IGSN ISN KAPPAE L0 LOL LYWY0 OMEGE 
+    INFLAGE 
+    IG1E 
+    IGSN          ${igsn}$               (long_name='Steady state share of government investment in output') 
+    ISN 
+    KAPPAE 
+    L0            ${l_0}$                (long_name='Steady state employment rate') 
+    LOL 
+    LYWY0         ${\lambda_{yw}}$       (long_name='Steady state relative output ratio, log-normalised to 0') 
+    OMEGE          ${\omega}$                      (long_name='Labour disutility scaling parameter') 
     RHOCE          ${\rho_c}$                      (long_name='AR(1) parameter: Consumption Preference Shock')
     RHOETA 
     RHOETAM  
@@ -207,7 +273,26 @@ parameters
     RHORPE  
     RHORPK  
     RHOUCAP0       ${\rho_ucap}$                (long_name='AR(1) parameter: Capacity utilization') 
-    RII  RIP  RIX RPI RPP RPX RXI RXP RXX RXY  RPREME RPREMK SE SFPE SFPME SFPXE SFWE SIGC SIGEXE SIGIME  
+    RII  
+    RIP  
+    RIX 
+    RPI 
+    RPP 
+    RPX 
+    RXI 
+    RXP 
+    RXX 
+    RXY  
+    RPREME 
+    RPREMK 
+    SE 
+    SFPE 
+    SFPME 
+    SFPXE 
+    SFWE 
+    SIGC 
+    SIGEXE 
+    SIGIME  
     SLC            ${slc}$                      (long_name='Share of constrained households') 
     SSC
     TAUE TP  THETAE 
@@ -218,7 +303,7 @@ parameters
     TVAT
     TW0 
     TW1 
-    UCAP0 
+    UCAP0         ${u_0}$                (long_name='Steady state capacity utilisation, normalised to 1') 
     WRLAG 
     ZETE 
     interestq_exog 
