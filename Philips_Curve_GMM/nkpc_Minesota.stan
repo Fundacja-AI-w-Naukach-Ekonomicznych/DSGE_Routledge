@@ -16,9 +16,9 @@ parameters {
 
 model {
   // Priory (możesz dopasować)
-  beta ~ beta(1.5, 1.5);
-  kappa ~ normal(0.05, 0.02);
-  rho ~ normal(0, 0.5);               
+  beta ~ normal(0.5, 0.1); 
+  kappa ~ normal(0.0, 0.05);
+  rho ~ normal(0, 0.4);               
   sigma ~ inv_gamma(2, 0.01);
 
   u[1] ~ normal(0, sigma / sqrt(1 - square(rho))); // stacjonarna wariancja

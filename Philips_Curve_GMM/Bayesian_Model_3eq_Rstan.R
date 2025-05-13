@@ -22,6 +22,7 @@ Bayesian_data_download <- function(country_code){
   }
   df_rates <- df_rates |>  dplyr::select(time, values) |>
     dplyr::rename(interest_rate = values) |>
+    dplyr::mutate(interest_rate = interest_rate / 4) |>
     na.omit()
   
   df <- df |>
@@ -43,18 +44,22 @@ gemerate_Bayesian_Model <- function(df){
   stan_data <- list(
     N = N,
     pi_t = df$cpi,
-    pi_lead1 = df$cpi_lead,
-    pi_lag1 = df$cpi_lag,
-    x_t = df$output_gap
+    x_t = df$output_gap,
+    i_t = df$interest_rate
   )
   
+  options(mc.cores = parallel::detectCores(logical = FALSE))
   fit <- stan(
-    file = paste0(file_path, "nkpc.stan"),
+    file = paste0(file_path, "nkpc_three_equations.stan"),
     data = stan_data,
-    iter = 2000,
-    warmup = 500,
-    chains = 4,
-    seed = 123
+    iter = 4000,
+    warmup = 2000,
+    chains = 8,
+    seed = 123,
+    control = list(
+      max_treedepth = 15,
+      adapt_delta = 0.95
+    )
   )
   
   stan_summary <- summary(fit, pars = c("beta", "kappa"))$summary |>
@@ -64,8 +69,7 @@ gemerate_Bayesian_Model <- function(df){
 
 gather_Bayesian_Parameters <- function(Test_Sample = FALSE){ 
   models_collection <- c() 
-  countries <- c("AT", "BE", "CZ","DK","FR","DE", 
-                 "HU","IT","NL","PL","SK","ES","SE")
+  countries <- c("CZ","DK","HU","PL","SE")
   
   for (country in countries) {
     print(country)
