@@ -39,7 +39,9 @@ download_energy_commission <- function(){
     ) |>
     rename_with(~ gsub("price_with_tax_", "", .x)) |>
     dplyr::rename(Date = Consumer.prices.of.petroleum.products.inclusive.of.duties.and.taxes) |>
-    dplyr::filter(!is.na(Date))
+    dplyr::filter(!is.na(Date), Date >= "2010-01-01") |>
+    dplyr::select(where(~ !all(is.na(.)))) |>
+    dplyr::arrange(Date) 
   
   write.xlsx(df, paste0(file_path,"EC_energy.xlsx"), rownames = FALSE)
 }
